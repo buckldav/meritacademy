@@ -1,0 +1,19 @@
+/* Home */
+#homeTitle {
+  font-family: 'Anonymous Pro', monospace;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  text-align: center;
+}
+
+#homeTitle::before {
+  content: attr(data-before);
+  word-break: break-all;
+  opacity: 0.5;
+}
+
+#homeTitle::after {
+  content: attr(data-after);
+  word-break: break-all;
+  opacity: 0.5;
+}
