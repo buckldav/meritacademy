@@ -34,17 +34,21 @@ ALLOWED_HOSTS = ['meritacademy.herokuapp.com', 'meritacademy.tech', 'www.meritac
 # Application definition
 
 INSTALLED_APPS = [
-  'sampleapp',
-
   'django.contrib.admin',
   'django.contrib.auth',
   'django.contrib.contenttypes',
   'django.contrib.sessions',
   'django.contrib.messages',
   'django.contrib.staticfiles',
+
+  'corsheaders',
+  'rest_framework',
+
+  'courses',
 ]
 
 MIDDLEWARE = [
+  'corsheaders.middleware.CorsMiddleware',
   'django.middleware.security.SecurityMiddleware',
   'django.contrib.sessions.middleware.SessionMiddleware',
   'django.middleware.common.CommonMiddleware',
@@ -134,3 +138,16 @@ STATICFILES_DIRS = [
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
+# Django Rest Framework
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
+
+# Headers
+
+CORS_ORIGIN_ALLOW_ALL = True

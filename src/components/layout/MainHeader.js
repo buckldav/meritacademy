@@ -13,8 +13,8 @@ const MainHeader = props => {
                 defaultSelectedKeys={props.selected}
                 style={{ lineHeight: '64px' }}
             >
-                <Menu.Item key="1">Home</Menu.Item>
-                <Menu.Item key="2">Courses</Menu.Item>
+                <Menu.Item key="1"><a href="/">Home</a></Menu.Item>
+                <Menu.Item key="2"><a href="/courses">Courses</a></Menu.Item>
                 <Menu.Item key="3">Projects</Menu.Item>
             </Menu>
         </Header>
