@@ -92,16 +92,8 @@ if DEBUG:
     }
   }
 else:
-  DATABASES = {
-    'default': {
-      'ENGINE': 'django.db.backends.postgresql',
-      'NAME': 'd99e14q4fetdir',
-      'USER': os.environ["DATABASE_USER"],
-      'PASSWORD': os.environ["DATABASE_PASSWORD"],
-      'HOST': 'ec2-107-20-237-78.compute-1.amazonaws.com',
-      'PORT': '5432',
-    }
-  }
+  import dj_database_url
+  DATABASES['default'] = dj_database_url.config(os.environ['DATABASE_URL'])
 
 
 # Password validation
