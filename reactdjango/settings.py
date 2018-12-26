@@ -91,13 +91,6 @@ if DEBUG:
       'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
   }
-# else:
-#   import dj_database_url
-#   DATABASES = {
-#     'default': {}
-#   }
-#   DATABASES['default']['ENGINE'] = 'django.db.backends.postgresql_psycopg2'
-#   DATABASES['default']['NAME'] = os.environ['DATABASE_URL'].split('/')[3]
 
 
 # Password validation
