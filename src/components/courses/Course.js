@@ -96,8 +96,8 @@ class Course extends React.Component {
 
     render() {
         return (
-            <Layout>
-                <Layout>
+            <Layout className="scroll-x-container">
+                <Layout className="scroll-x">
                     <Sider collapsible={this.state.collapsible} collapsed={this.state.collapsed} trigger={null} width={200} style={{ background: '#fff' }}>
                     {this.state.collapsible ? <Button disabled={!this.state.collapsible} onClick={this.onCollapse} block icon={this.state.collapsed ? 'menu-unfold' : 'menu-fold'} style={{border: "none"}} /> : null}
                     <Menu
@@ -120,7 +120,7 @@ class Course extends React.Component {
                         <Breadcrumb.Item>{this.state.course.name}</Breadcrumb.Item>
                     </Breadcrumb>
                     <Content style={{
-                        background: '#fff', padding: 24, margin: 0, minHeight: 280, minWidth: 400
+                        background: '#fff', padding: 24, margin: 0, minHeight: 280
                     }}
                     >
                         <h1>{this.state.course.name}</h1>
