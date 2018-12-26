@@ -5,9 +5,9 @@ const { Header } = Layout;
 
 const MainHeader = props => {
     return (
-        <Header>
-            <div className="logo" />
-            <Menu
+        <Header id="main-header">
+            <Menu 
+                id="main-nav"
                 theme="dark"
                 mode="horizontal"
                 defaultSelectedKeys={props.selected}
