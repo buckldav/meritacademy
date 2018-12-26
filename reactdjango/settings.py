@@ -93,6 +93,9 @@ if DEBUG:
   }
 else:
   import dj_database_url
+  DATABASES = {
+    'default': {}
+  }
   DATABASES['default'] = dj_database_url.config(os.environ['DATABASE_URL'])
   DATABASES['default']['ENGINE'] = 'django.db.backends.postgresql_psycopg2'
 
