@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { List, Card, Button } from 'antd';
 
-import SERVER_URL from '../../server';
+import { SERVER_URL } from '../../Constants';
 
 const styles = {
     fade: {

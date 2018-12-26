@@ -6,15 +6,27 @@ import {
 import Calendar from './course/Calendar';
 import Dashboard from './course/Dashboard';
 
-import SERVER_URL from '../../server';
+import { SERVER_URL, BOOTSTRAP_MAX } from '../../Constants';
 
 const { Content, Sider } = Layout;
   
+const MenuItems = [
+    {
+        title: "Dashboard",
+        icon: "home"
+    },
+    {
+        title: "Calendar",
+        icon: "calendar"
+    }
+]
+
 class Course extends React.Component {
     state = {
         course: {},
         view: "",
 
+        collapsible: true,
         collapsed: false,
         openKeys: [],
     };
@@ -32,9 +44,22 @@ class Course extends React.Component {
         this.setState({openKeys: openKeys});
     }
 
+    onResize = () => {
+        let windowWidth = window.innerWidth;
+        if (windowWidth < BOOTSTRAP_MAX.md) {
+            // Collapse menu
+            this.setState({collapsible: false});
+            this.setState({collapsed: true});
+        } else if (!this.state.collapsible) {
+            // Only expand the menu once onResize
+            this.setState({collapsible: true});
+            this.setState({collapsed: false});
+        }
+    }
+
     onSelect = (key) => {
         this.setState({
-            view: key.item.props.children
+            view: MenuItems[parseInt(key.key) - 1].title
         });
     }    
 
@@ -50,8 +75,7 @@ class Course extends React.Component {
             if (i < arr.length - 1) {
                 pathStr += '/';
             }
-        })
-        // console.log(pathStr);
+        });
         axios.get(SERVER_URL + '/api' + pathStr)
             .then(res => {
                 this.setState({
@@ -64,14 +88,18 @@ class Course extends React.Component {
         this.setState({
             view: "Dashboard"
         });
+
+        // Window resize
+        window.onresize = this.onResize;
+        this.onResize();
     }
 
     render() {
         return (
             <Layout>
                 <Layout>
-                    <Sider collapsible collapsed={this.state.collapsed} trigger={null} width={200} style={{ background: '#fff' }}>
-                    <Button onClick={this.onCollapse} block icon={this.state.collapsed ? 'menu-unfold' : 'menu-fold'} style={{border: "none"}} />
+                    <Sider collapsible={this.state.collapsible} collapsed={this.state.collapsed} trigger={null} width={200} style={{ background: '#fff' }}>
+                    {this.state.collapsible ? <Button disabled={!this.state.collapsible} onClick={this.onCollapse} block icon={this.state.collapsed ? 'menu-unfold' : 'menu-fold'} style={{border: "none"}} /> : null}
                     <Menu
                         mode="inline"
                         defaultSelectedKeys={['1']}
@@ -81,8 +109,8 @@ class Course extends React.Component {
                         style={{ height: '90%', borderRight: 0 }}
                     >
                         
-                        <Menu.Item key="1" title="Dashboard">{this.state.collapsed ? <Icon type="home" /> : 'Dashboard'}</Menu.Item>
-                        <Menu.Item key="2" title="Calendar">{this.state.collapsed ? <Icon type="calendar" /> : 'Calendar'}</Menu.Item>
+                        <Menu.Item key="1" title={MenuItems[0].title}>{this.state.collapsed ? <Icon type={MenuItems[0].icon} /> : MenuItems[0].title}</Menu.Item>
+                        <Menu.Item key="2" title={MenuItems[1].title}>{this.state.collapsed ? <Icon type={MenuItems[1].icon} /> : MenuItems[1].title}</Menu.Item>
                     </Menu>
                     </Sider>
                     <Layout style={{ padding: '0 24px 24px' }}>
@@ -92,7 +120,7 @@ class Course extends React.Component {
                         <Breadcrumb.Item>{this.state.course.name}</Breadcrumb.Item>
                     </Breadcrumb>
                     <Content style={{
-                        background: '#fff', padding: 24, margin: 0, minHeight: 280,
+                        background: '#fff', padding: 24, margin: 0, minHeight: 280, minWidth: 400
                     }}
                     >
                         <h1>{this.state.course.name}</h1>
