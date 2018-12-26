@@ -91,13 +91,13 @@ if DEBUG:
       'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
   }
-else:
-  import dj_database_url
-  DATABASES = {
-    'default': {}
-  }
-  DATABASES['default']['ENGINE'] = 'django.db.backends.postgresql_psycopg2'
-  DATABASES['default']['NAME'] = os.environ['DATABASE_URL'].split('/')[3]
+# else:
+#   import dj_database_url
+#   DATABASES = {
+#     'default': {}
+#   }
+#   DATABASES['default']['ENGINE'] = 'django.db.backends.postgresql_psycopg2'
+#   DATABASES['default']['NAME'] = os.environ['DATABASE_URL'].split('/')[3]
 
 
 # Password validation
@@ -157,5 +157,8 @@ REST_FRAMEWORK = {
 }
 
 # Headers
-
 CORS_ORIGIN_ALLOW_ALL = True
+
+# Configure Django App for Heroku.
+import django_heroku
+django_heroku.settings(locals())
