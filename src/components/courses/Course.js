@@ -3,8 +3,8 @@ import axios from 'axios';
 import {
     Button, Layout, Menu, Breadcrumb, Icon
 } from 'antd';
-import Calendar from './course/Calendar';
 import Dashboard from './course/Dashboard';
+import About from './course/About';
 
 import { SERVER_URL, BOOTSTRAP_MAX } from '../../Constants';
 
@@ -16,8 +16,8 @@ const MenuItems = [
         icon: "home"
     },
     {
-        title: "Calendar",
-        icon: "calendar"
+        title: "About",
+        icon: "info-circle"
     }
 ]
 
@@ -81,7 +81,23 @@ class Course extends React.Component {
                 this.setState({
                     course: res.data
                 });
-                console.log(this.state.course);
+                // console.log(this.state.course);
+            });
+
+        // Get the events
+        let pathStrCourse = pathStr.split('/')
+        pathStrCourse = pathStrCourse[pathStrCourse.length - 1]
+        axios.get(SERVER_URL + '/api/events/course/' + pathStrCourse)
+            .then(res => {
+                let sortedByDate = res.data.sort((a, b) => {
+                    a = new Date(a.date);
+                    b = new Date(b.date);
+                    return a>b ? -1 : a<b ? 1 : 0;
+                });
+                this.setState(prevState => ({
+                    course: {...prevState.course, events: sortedByDate}
+                }));
+                // console.log(this.state.course);
             });
 
         // Set the view
@@ -89,7 +105,7 @@ class Course extends React.Component {
             view: "Dashboard"
         });
 
-        // Window resize
+        // Window resize, collapsing menu
         window.onresize = this.onResize;
         this.onResize();
     }
@@ -125,7 +141,7 @@ class Course extends React.Component {
                     >
                         <h1>{this.state.course.name}</h1>
                         <Dashboard course={this.state.course} visible={this.state.view === "Dashboard"} />
-                        <Calendar course={this.state.course} visible={this.state.view === "Calendar"} />
+                        <About course={this.state.course} visible={this.state.view === "About"} />
                     </Content>
                     </Layout>
                 </Layout>
