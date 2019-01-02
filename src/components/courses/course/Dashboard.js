@@ -1,5 +1,6 @@
 import React from 'react';
-import { List, Radio, Calendar, Badge } from 'antd';
+import { Avatar, List, Radio, Calendar, Badge } from 'antd';
+import { EventStyles } from './EventStyles';
 
 const RadioButton = Radio.Button;
 const RadioGroup = Radio.Group;
@@ -9,15 +10,20 @@ const DashboardList = props => {
         <List
             itemLayout="horizontal"
             dataSource={props.events}
-            renderItem={item => (
-                <List.Item>
-                    <List.Item.Meta
-                    // avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
-                        title={item.date}
-                        description={item.text}
-                    /> 
-                </List.Item>
-            )}
+            renderItem={item => {
+                if (item.eventType === "hidden") {
+                    return <div></div>
+                }
+                return (
+                    <List.Item>
+                        <List.Item.Meta
+                            avatar={<Avatar icon={EventStyles[item.eventType].icon} shape="square" style={{backgroundColor: EventStyles[item.eventType].color}} />}
+                            title={item.date}
+                            description={item.text}
+                        /> 
+                    </List.Item>
+                );
+            }}
         />
     )
 }
@@ -32,17 +38,22 @@ const DashboardCalendar = props => {
                 padding: 0
             }}>
                 {
-                    events.map(item => (
-                    <li key={item.id}>
-                        <Badge status={"warning"} text={item.text} style={{
-                            overflow: "hidden",
-                            whiteSpace: "nowrap",
-                            width: "100%",
-                            textOverflow: "ellipsis",
-                            fontSize: "12px"
-                        }}/>
-                    </li>
-                    ))
+                    events.map(item => {
+                        if (item.eventType === "hidden") {
+                            return <li key={item.id}></li>
+                        }
+                        return (
+                            <li key={item.id}>
+                                <Badge status={EventStyles[item.eventType].status} text={item.text} style={{
+                                    overflow: "hidden",
+                                    whiteSpace: "nowrap",
+                                    width: "100%",
+                                    textOverflow: "ellipsis",
+                                    fontSize: "12px"
+                                }}/>
+                            </li>
+                        );
+                    })
                 }
             </ul>
         );

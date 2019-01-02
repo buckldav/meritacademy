@@ -105,8 +105,6 @@ class Course extends React.Component {
                 });
             });
 
-        
-
         // Window resize, collapsing menu
         window.onresize = this.onResize;
         this.onResize();
