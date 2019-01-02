@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { List, Card, Button } from 'antd';
+import Loading from '../Loading';
 
 import { SERVER_URL } from '../../Constants';
 
@@ -23,7 +24,8 @@ const styles = {
 
 class Courses extends React.Component {
     state = {
-        courses: []
+        courses: [],
+        loaded: false
     }
 
     componentDidMount() {
@@ -36,7 +38,8 @@ class Courses extends React.Component {
                     return x < y ? -1 : x > y ? 1 : 0;
                 })
                 this.setState({
-                    courses: sortAZbyName
+                    courses: sortAZbyName,
+                    loaded: true
                 });
                 // console.log(this.state.courses);
             });
@@ -57,29 +60,33 @@ class Courses extends React.Component {
 
     render() {
         return (
-            <List
-                grid={{
-                    gutter: 16, xs: 1, sm: 2, md: 4, lg: 4, xl: 6, xxl: 6,
-                }}
-                dataSource={this.state.courses}
-                renderItem={item => (
-                    <List.Item> 
-                        <Card 
-                            title={<a href={"/courses/" + item.name.replace(/\s+/g, '-').toLowerCase()} style={{color: "rgba(0, 0, 0, 0.85)"}}>{item.name}</a>} 
-                            extra={<Button icon="caret-down" style={{border: 0}} onClick={this.onArrowClick} />}
-                            style={styles.card}
-                        >
-                            {item.description} 
-                            <hr style={{borderWidth: 0}} />
-                            {item.teacher2 == null ? "Teacher: " + item.teacher : "Teachers: " + item.teacher + " & " + item.teacher2}
-                            <div style={styles.fade}></div>
-                        </Card>
-                    </List.Item>
-                )}
-                style={{
-                    padding: "50px"
-                }}
-            />
+            <div>
+                {!this.state.loaded ? <div style={{marginTop: "24px"}}><Loading /></div> :
+                <List
+                    grid={{
+                        gutter: 16, xs: 1, sm: 2, md: 3, lg: 4, xl: 6, xxl: 6,
+                    }}
+                    dataSource={this.state.courses}
+                    renderItem={item => (
+                        <List.Item> 
+                            <Card 
+                                title={<a href={"/courses/" + item.name.replace(/\s+/g, '-').toLowerCase()} style={{color: "rgba(0, 0, 0, 0.85)"}}>{item.name}</a>} 
+                                extra={<Button icon="caret-down" style={{border: 0}} onClick={this.onArrowClick} />}
+                                style={styles.card}
+                            >
+                                {item.description} 
+                                <hr style={{borderWidth: 0}} />
+                                {item.teacher2 == null ? "Teacher: " + item.teacher : "Teachers: " + item.teacher + " & " + item.teacher2}
+                                <div style={styles.fade}></div>
+                            </Card>
+                        </List.Item>
+                    )}
+                    style={{
+                        padding: "50px"
+                    }}
+                />
+                }
+            </div>
         );
     }
 }

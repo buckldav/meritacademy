@@ -3,16 +3,17 @@ import React, { Component } from "react";
 import { Layout } from "antd";
 import './Home.css';
 
-const { Content } = Layout;
+import { BOOTSTRAP_MAX } from '../Constants';
 
-/* eslint-disable react/no-multi-comp */
-/* Heads up! HomepageHeading uses inline styling, however it's not the best practice. Use CSS or styled components for
- * such things.
- */
+const { Content } = Layout;
 
 export default class Home extends Component {
   init = (str, el) => {
     var count = str.length;
+    var ranStringSize = count;
+    if (window.innerWidth < BOOTSTRAP_MAX.md) {
+      ranStringSize = count / 2;
+    }
     var delay = 50;
 
     el.innerHTML = '';
@@ -27,8 +28,8 @@ export default class Home extends Component {
         return string;
       }
 
-      el.setAttribute('data-before', ranString(count));
-      el.setAttribute('data-after', ranString(count));
+      el.setAttribute('data-before', ranString(ranStringSize));
+      el.setAttribute('data-after', ranString(ranStringSize));
       if(delay > 0) {
         delay--;
       }
@@ -37,6 +38,7 @@ export default class Home extends Component {
           el.innerHTML += str[str.length - count-1];
         }
         count--;
+        ranStringSize--;
         if(count === -1) {
           clearInterval(gen);
         }
@@ -54,7 +56,7 @@ export default class Home extends Component {
     return(
       <Content style={{ background: '#fff', padding: "300px 0", minHeight: 280 }}>
           <h1 id="homeTitle">{this.title}</h1>
-          <p style={{textAlign: "center"}}>Coming Soon January 2019</p>
+          <p style={{textAlign: "center"}}>Career and Technology Education</p>
       </Content>
     );
   }

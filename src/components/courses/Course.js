@@ -5,6 +5,7 @@ import {
 } from 'antd';
 import Dashboard from './course/Dashboard';
 import About from './course/About';
+import Loading from '../Loading';
 
 import { SERVER_URL, BOOTSTRAP_MAX } from '../../Constants';
 
@@ -24,7 +25,7 @@ const MenuItems = [
 class Course extends React.Component {
     state = {
         course: {},
-        view: "",
+        view: "Loading",
 
         collapsible: true,
         collapsed: false,
@@ -97,13 +98,14 @@ class Course extends React.Component {
                 this.setState(prevState => ({
                     course: {...prevState.course, events: sortedByDate}
                 }));
-                // console.log(this.state.course);
+                
+                // Set the view
+                this.setState({
+                    view: "Dashboard"
+                });
             });
 
-        // Set the view
-        this.setState({
-            view: "Dashboard"
-        });
+        
 
         // Window resize, collapsing menu
         window.onresize = this.onResize;
@@ -139,7 +141,8 @@ class Course extends React.Component {
                         background: '#fff', padding: 24, margin: 0, minHeight: 280
                     }}
                     >
-                        <h1>{this.state.course.name}</h1>
+                        
+                        {this.state.view === "Loading" ? <Loading /> : <h1>{this.state.course.name}</h1> }
                         <Dashboard course={this.state.course} visible={this.state.view === "Dashboard"} />
                         <About course={this.state.course} visible={this.state.view === "About"} />
                     </Content>
