@@ -66,43 +66,56 @@ class Course extends React.Component {
 
     componentDidMount() {
         // Get the course data
-        let path = this.props.location.pathname.split('/');
-        path[path.length - 1] = path[path.length - 1].replace(/-/g, ' ').replace(/\w\S*/g, (txt) => {
-            return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-        });
-        let pathStr = "";
-        path.forEach((val, i, arr) => {
-            pathStr += val;
-            if (i < arr.length - 1) {
-                pathStr += '/';
-            }
-        });
-        axios.get(SERVER_URL + '/api' + pathStr)
+        var courses = []
+        axios.get(SERVER_URL + '/api/courses')
             .then(res => {
-                this.setState({
-                    course: res.data
-                });
-                // console.log(this.state.course);
-            });
-
-        // Get the events
-        let pathStrCourse = pathStr.split('/')
-        pathStrCourse = pathStrCourse[pathStrCourse.length - 1]
-        axios.get(SERVER_URL + '/api/events/course/' + pathStrCourse)
-            .then(res => {
-                let sortedByDate = res.data.sort((a, b) => {
-                    a = new Date(a.date);
-                    b = new Date(b.date);
-                    return a>b ? -1 : a<b ? 1 : 0;
-                });
-                this.setState(prevState => ({
-                    course: {...prevState.course, events: sortedByDate}
-                }));
+                courses = res.data;
+                console.log(courses);    
                 
-                // Set the view
-                this.setState({
-                    view: "Dashboard"
+                // The path needs to be the exact name of the course
+                let path = this.props.location.pathname.split('/');
+                path[path.length - 1] = path[path.length - 1].replace(/-/g, ' ');
+                courses.forEach((val, i) => {
+                    console.log(val.name);
+                    if (val.name.toLowerCase() === path[path.length - 1]) {
+                        path[path.length - 1] = val.name;
+                    }
+                })
+
+                let pathStr = "";
+                path.forEach((val, i, arr) => {
+                    pathStr += val;
+                    if (i < arr.length - 1) {
+                        pathStr += '/';
+                    }
                 });
+                axios.get(SERVER_URL + '/api' + pathStr)
+                    .then(res => {
+                        this.setState({
+                            course: res.data
+                        });
+                        // console.log(this.state.course);
+                    });
+
+                // Get the events
+                let pathStrCourse = pathStr.split('/')
+                pathStrCourse = pathStrCourse[pathStrCourse.length - 1]
+                axios.get(SERVER_URL + '/api/events/course/' + pathStrCourse)
+                    .then(res => {
+                        let sortedByDate = res.data.sort((a, b) => {
+                            a = new Date(a.date);
+                            b = new Date(b.date);
+                            return a>b ? -1 : a<b ? 1 : 0;
+                        });
+                        this.setState(prevState => ({
+                            course: {...prevState.course, events: sortedByDate}
+                        }));
+                        
+                        // Set the view
+                        this.setState({
+                            view: "Dashboard"
+                        });
+                    });
             });
 
         // Window resize, collapsing menu
