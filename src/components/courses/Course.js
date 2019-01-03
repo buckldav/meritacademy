@@ -70,13 +70,13 @@ class Course extends React.Component {
         axios.get(SERVER_URL + '/api/courses')
             .then(res => {
                 courses = res.data;
-                console.log(courses);    
+                // console.log(courses);    
                 
                 // The path needs to be the exact name of the course
                 let path = this.props.location.pathname.split('/');
                 path[path.length - 1] = path[path.length - 1].replace(/-/g, ' ');
                 courses.forEach((val, i) => {
-                    console.log(val.name);
+                    // console.log(val.name);
                     if (val.name.toLowerCase() === path[path.length - 1]) {
                         path[path.length - 1] = val.name;
                     }
@@ -116,6 +116,16 @@ class Course extends React.Component {
                             view: "Dashboard"
                         });
                     });
+
+                // Get the disclosure
+                axios.get(SERVER_URL + '/api/courses/disclosures/' + pathStrCourse)
+                    .then(res => {
+                        if (res.data.length === 1) {
+                            this.setState(prevState => ({
+                                course: {...prevState.course, disclosureURL: res.data[0].driveUrl}
+                            }));
+                        }
+                    })
             });
 
         // Window resize, collapsing menu
@@ -137,9 +147,11 @@ class Course extends React.Component {
                         onSelect={this.onSelect}
                         style={{ height: '90%', borderRight: 0 }}
                     >
-                        
-                        <Menu.Item key="1" title={MenuItems[0].title}>{this.state.collapsed ? <Icon type={MenuItems[0].icon} /> : MenuItems[0].title}</Menu.Item>
-                        <Menu.Item key="2" title={MenuItems[1].title}>{this.state.collapsed ? <Icon type={MenuItems[1].icon} /> : MenuItems[1].title}</Menu.Item>
+                        {
+                            MenuItems.map((item, i) => (
+                                <Menu.Item key={"" + (i + 1)} title={item.title}>{this.state.collapsed ? <Icon type={item.icon} /> : item.title}</Menu.Item>
+                            ))
+                        }
                     </Menu>
                     </Sider>
                     <Layout style={{ padding: '0 24px 24px' }}>

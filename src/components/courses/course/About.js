@@ -1,5 +1,5 @@
 import React from 'react';
-// TODO: import { Document, Page } from 'react-pdf';
+import Iframe from 'react-iframe';
 
 const About = props => {
     if (props.visible) {
@@ -8,6 +8,12 @@ const About = props => {
                 <div>
                     <p>{props.course.teacher2 == null ? "Teacher: " + props.course.teacher : "Teachers: " + props.course.teacher + " & " + props.course.teacher2}</p>
                     <p>{props.course.description}</p>
+                    {!props.course.disclosureURL ? null : 
+                    <Iframe url={props.course.disclosureURL}
+                    width="100%" 
+                    height="480" 
+                    display="initial"
+                    position="relative" />}
                 </div>
             );
         } else {

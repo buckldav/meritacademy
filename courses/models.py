@@ -19,3 +19,9 @@ class Course(models.Model):
     teacher2 = models.ForeignKey(Teacher, on_delete=models.CASCADE, blank=True, null=True, related_name="secondary")
     def __str__(self):
         return self.name
+
+class DisclosureDocument(models.Model):
+    driveUrl = models.CharField(max_length=200)
+    course = models.ForeignKey(Course, on_delete=models.CASCADE, default="Web Development")
+    def __str__(self):
+        return "Disclosure for " + str(self.course)
