@@ -1,9 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {
     Button, Layout, Menu, Breadcrumb, Icon
 } from 'antd';
 import { BOOTSTRAP_MAX } from '../../Constants';
-// import Iframe from 'react-iframe';
+import Games from './Games';
+import Sites from './Sites';
+import MobileApps from './MobileApps';
 import "./Projects.css";
 
 const { Content, Sider } = Layout;
@@ -11,15 +14,21 @@ const { Content, Sider } = Layout;
 const MenuItems = [
     {
         title: "Games",
-        icon: "play-circle"
+        icon: "play-circle",
+        path: "/projects/games",
+        component: Games
     },
     {
         title: "Sites",
-        icon: "link"
+        icon: "link",
+        path: "/projects/sites",
+        component: Sites
     },
     {
         title: "Mobile Apps",
-        icon: "mobile"
+        icon: "mobile",
+        path: "/projects/mobile",
+        component: MobileApps
     }
 ]
 
@@ -32,6 +41,17 @@ class Projects extends React.Component {
     
     onCollapse = () => {
         this.setState({ collapsed: !this.state.collapsed });
+    }
+
+    onFrameLoad = (e) => {
+        let frame = e.target;
+        let canvas = Array.from(frame.contentDocument.getElementsByTagName("canvas"))[0];
+        canvas.onResize = e => {
+            console.log(e.target.height);
+        }
+        frame.setAttribute("height", canvas.height);
+        frame.style.height = canvas.height;
+        console.log(frame);
     }
 
     onOpenChange = (openKeys) => {
@@ -61,13 +81,6 @@ class Projects extends React.Component {
             view: MenuItems[parseInt(key.key) - 1].title
         });
     }    
-
-    componentDidMount() {
-        let frames = Array.from(document.getElementsByTagName("iframe"));
-        frames.forEach((val, i) => {
-            val.setAttribute("scrolling", "no");
-        });
-    }
     
     render() {
         return (
@@ -85,7 +98,7 @@ class Projects extends React.Component {
                     >
                         {
                             MenuItems.map((item, i) => (
-                                <Menu.Item key={"" + (i + 1)} title={item.title}>{this.state.collapsed ? <Icon type={item.icon} /> : item.title}</Menu.Item>
+                                <Menu.Item key={"" + (i + 1)} title={item.title}><Link to={`${item.path}`}>{this.state.collapsed ? <Icon type={item.icon} /> : item.title}</Link></Menu.Item>
                             ))
                         }
                     </Menu>
@@ -99,17 +112,7 @@ class Projects extends React.Component {
                         background: '#fff', padding: 24, margin: 0, minHeight: 280
                     }}
                     >
-                    <h3 style={{textAlign: "center"}}>There are no projects to display at this time.</h3>
-                    <p style={{textAlign: "center"}}>If you have a creation you would like featured on this site, email Mr. Buckley at <a href="mailto:david.buckley@meritacademy.org">david.buckley@meritacademy.org</a>.</p>
-                    {/* <Iframe url="http://scratch.mit.edu/projects/embed/260481630"
-                        width="700px"
-                        height="500px"
-                        className="scratch"
-                        display="initial"
-                        position="relative"
-                        allowFullScreen/> */}
-                    
-                    
+                        {this.props.children}   
                     </Content>
                     </Layout>
                 </Layout>
