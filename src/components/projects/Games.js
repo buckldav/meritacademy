@@ -7,16 +7,23 @@ const GameInfo = [
     {
         title: "Cat Platform",
         author: "Luke E",
+        engine: "Scratch",
         instructions: "Click on the game to activate it. Go to the check mark! Press arrow keys to move, space to jump.",
         url: "https://scratch.mit.edu/projects/embed/260481630"
     },
     {
         title: "Maze",
         author: "Connor L",
+        engine: "Godot",
         instructions: "Click on the game to activate it. Find the star! Press arrow keys to move.",
         url: "/static/projects/games/maze/index.html"
     }
 ]
+
+const EngineUrls = {
+    "Scratch": "https://scratch.mit.edu/",
+    "Godot": "https://godotengine.org/"
+}
 
 
 
@@ -63,9 +70,9 @@ class Games extends React.Component {
                     </button>
                 </Dropdown>
 
-                <h2>{this.state.selected.title}</h2>
-                <h4>{this.state.selected.author}</h4>
-                <p>{this.state.selected.instructions}</p>
+                <h2 style={{textAlign: "center"}}>{this.state.selected.title}</h2>
+                <h4 style={{textAlign: "center"}}>Author: {this.state.selected.author}&emsp;&emsp;Engine: <a href={EngineUrls[this.state.selected.engine]}>{this.state.selected.engine}</a></h4>
+                <p style={{textAlign: "center"}}>{this.state.selected.instructions}</p>
 
                 <Iframe 
                 height="600"
