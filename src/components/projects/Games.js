@@ -8,7 +8,7 @@ const GameInfo = [
         title: "Cat Platform",
         author: "Luke E",
         instructions: "Click on the game to activate it. Go to the check mark! Press arrow keys to move, space to jump.",
-        url: "http://scratch.mit.edu/projects/embed/260481630"
+        url: "https://scratch.mit.edu/projects/embed/260481630"
     },
     {
         title: "Maze",
