@@ -17,6 +17,13 @@ const GameInfo = [
         engine: "Godot",
         instructions: "Click on the game to activate it. Find the star! Press arrow keys to move.",
         url: "/static/projects/games/maze/index.html"
+    },
+    {
+        title: "Snake",
+        author: "Alex B",
+        engine: "Scratch",
+        instructions: "Click on the game to activate it. Go to the check mark! Press arrow keys to move, space to jump.",
+        url: "https://scratch.mit.edu/projects/embed/23464954"
     }
 ]
 
@@ -71,7 +78,7 @@ class Games extends React.Component {
                 </Dropdown>
 
                 <h2 style={{textAlign: "center"}}>{this.state.selected.title}</h2>
-                <h4 style={{textAlign: "center"}}>Author: {this.state.selected.author}&emsp;&emsp;Engine: <a href={EngineUrls[this.state.selected.engine]}>{this.state.selected.engine}</a></h4>
+                <h4 style={{textAlign: "center"}}>Author(s): {this.state.selected.author}&emsp;&emsp;Engine: <a href={EngineUrls[this.state.selected.engine]}>{this.state.selected.engine}</a></h4>
                 <p style={{textAlign: "center"}}>{this.state.selected.instructions}</p>
 
                 <Iframe 
