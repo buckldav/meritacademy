@@ -22,7 +22,7 @@ const GameInfo = [
         title: "Snake",
         author: "Alex B",
         engine: "Scratch",
-        instructions: "Click on the game to activate it. Go to the check mark! Press arrow keys to move, space to jump.",
+        instructions: "Click on the game to activate it. WASD to move. Collect the stars to increase your size.",
         url: "https://scratch.mit.edu/projects/embed/23464954"
     }
 ]
