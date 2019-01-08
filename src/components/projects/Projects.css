@@ -1,9 +1,0 @@
-.button-no-style,
-.button-no-style:hover,
-.button-no-style:focus {
-    color: #1890ff;
-    border: 0;
-    outline: 0;
-    padding: 0; 
-    background: none;
-}

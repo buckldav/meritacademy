@@ -36,6 +36,22 @@ class Course extends React.Component {
         this.setState({ collapsed: !this.state.collapsed });
     }
 
+    onModalOpen = (calEvent) => {
+        let eventsCopy = [...this.state.course.events];  
+        let index = eventsCopy.findIndex(el => el.id === calEvent.id);
+        eventsCopy[index].visible = true;                  
+        this.setState({ course: {...this.state.course, events: eventsCopy}}); 
+    }
+
+    onModalClose = (e, calEvent) => {
+        let eventsCopy = [...this.state.course.events];  
+        let index = eventsCopy.findIndex(el => el.id === calEvent.id);
+        // This line is because the Modal is declared nested inside of something sometimes.
+        e.stopPropagation();
+        eventsCopy[index].visible = false;           
+        this.setState({ course: {...this.state.course, events: eventsCopy}}); 
+    }
+
     onOpenChange = (openKeys) => {
         // Only allow for one submenu to be open at a time
         this.state.openKeys.forEach((val, i, arr) => {
@@ -107,14 +123,15 @@ class Course extends React.Component {
                             b = new Date(b.date);
                             return a>b ? -1 : a<b ? 1 : 0;
                         });
-                        this.setState(prevState => ({
-                            course: {...prevState.course, events: sortedByDate}
-                        }));
-                        
-                        // Set the view
-                        this.setState({
-                            view: "Dashboard"
+
+                        let sortedNoFuture = sortedByDate.filter(val => {
+                            return val.date && (new Date(val.date)).getTime() <= Date.now()
                         });
+
+                        this.setState(prevState => ({
+                            course: {...prevState.course, events: sortedByDate, eventsNow: sortedNoFuture},
+                            view: "Dashboard"
+                        }));
                     });
 
                 // Get the disclosure
@@ -166,7 +183,12 @@ class Course extends React.Component {
                     >
                         
                         {this.state.view === "Loading" ? <Loading /> : <h1>{this.state.course.name}</h1> }
-                        <Dashboard course={this.state.course} visible={this.state.view === "Dashboard"} />
+                        <Dashboard 
+                            course={this.state.course} 
+                            visible={this.state.view === "Dashboard"} 
+                            onModalOpen={this.onModalOpen}
+                            onModalClose={this.onModalClose}
+                            />
                         <About course={this.state.course} visible={this.state.view === "About"} />
                     </Content>
                     </Layout>

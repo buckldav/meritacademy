@@ -10,4 +10,4 @@ class EventTypeSerializer(serializers.ModelSerializer):
 class CalendarEventSerializer(serializers.ModelSerializer):
     class Meta:
         model = CalendarEvent
-        fields = ('id', 'date', 'text', 'eventType', 'course', 'link', 'linkText')
+        fields = ('id', 'date', 'text', 'eventType', 'course', 'driveUrl')

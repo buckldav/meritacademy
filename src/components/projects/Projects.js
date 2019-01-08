@@ -7,7 +7,6 @@ import { BOOTSTRAP_MAX } from '../../Constants';
 import Games from './Games';
 import Sites from './Sites';
 import MobileApps from './MobileApps';
-import "./Projects.css";
 
 const { Content, Sider } = Layout;
   

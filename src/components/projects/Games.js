@@ -1,7 +1,6 @@
 import React from 'react';
 import Iframe from 'react-iframe';
 import { Menu, Dropdown, Icon } from 'antd';
-import "./Projects.css";
 
 const GameInfo = [
     {
