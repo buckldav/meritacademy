@@ -11,6 +11,13 @@ const GameInfo = [
         url: "https://scratch.mit.edu/projects/embed/260481630"
     },
     {
+        title: "Don't Die!",
+        author: "Dallin C",
+        engine: "Unity",
+        instructions: "WASD or Arrow Keys to move.",
+        url: "/static/projects/games/dont-die/index.html"
+    },
+    {
         title: "Maze",
         author: "Connor L",
         engine: "Godot",
@@ -28,7 +35,8 @@ const GameInfo = [
 
 const EngineUrls = {
     "Scratch": "https://scratch.mit.edu/",
-    "Godot": "https://godotengine.org/"
+    "Godot": "https://godotengine.org/",
+    "Unity": "https://unity3d.com/"
 }
 
 
