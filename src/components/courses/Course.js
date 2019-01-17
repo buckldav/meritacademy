@@ -124,12 +124,8 @@ class Course extends React.Component {
                             return a>b ? -1 : a<b ? 1 : 0;
                         });
 
-                        let sortedNoFuture = sortedByDate.filter(val => {
-                            return val.date && (new Date(val.date)).getTime() <= Date.now()
-                        });
-
                         this.setState(prevState => ({
-                            course: {...prevState.course, events: sortedByDate, eventsNow: sortedNoFuture},
+                            course: {...prevState.course, events: sortedByDate},
                             view: "Dashboard"
                         }));
                     });

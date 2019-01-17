@@ -1,5 +1,5 @@
 import React from 'react';
-import { Avatar, List, Radio, Calendar, Badge, Modal, Button, Switch } from 'antd';
+import { Avatar, List, Radio, Calendar, Badge, Modal, Button, Switch, Menu, Dropdown, Icon } from 'antd';
 import { EventStyles } from './EventStyles';
 import Iframe from 'react-iframe';
 
@@ -114,10 +114,26 @@ const DashboardCalendar = props => {
     );
 }
 
+const FilterMenu = props => (
+    <Menu>
+      <Menu.Item key="1"><Switch checkedChildren={<Icon type="check" />} unCheckedChildren={<Icon type="close" />} defaultChecked={false} onChange={props.handleFuture} /> Show future</Menu.Item>
+      <Menu.Item key="2"><Switch checkedChildren={<Icon type="check" />} unCheckedChildren={<Icon type="close" />} defaultChecked={false} onChange={props.handleDue} /> Show due dates</Menu.Item>
+    </Menu>
+);
+
 class Dashboard extends React.Component {
     state = {
         viewType: "a",
+        due: false,
         future: false
+    }
+
+    handleDue = (checked) => {
+        this.setState({due: checked});
+    }    
+
+    handleFuture = (checked) => {
+        this.setState({future: checked});
     }
 
     onChange = (e) => {
@@ -132,10 +148,6 @@ class Dashboard extends React.Component {
         this.props.onModalClose(e, calEvent);    
     }
 
-    onSwitch = (checked) => {
-        this.setState({future: checked});
-    }
-
     render() {
         if (this.props.visible) {
             if (this.props.course !== {}) {
@@ -144,13 +156,21 @@ class Dashboard extends React.Component {
                         <RadioGroup onChange={this.onChange} defaultValue="a">
                             <RadioButton value="a">List</RadioButton>
                             <RadioButton value="b">Calendar</RadioButton>
+                            
                         </RadioGroup>
-                        <span>
-                            <span style={{marginLeft: 10, marginRight: 10}}>Show future</span>
-                            <Switch onChange={this.onSwitch} disabled={this.state.viewType === "b"}/>
-                        </span>
+                        
+                        <Dropdown overlay={<FilterMenu handleFuture={this.handleFuture} handleDue={this.handleDue} />} trigger={['click']}>
+                            <Button style={{ marginLeft: 8 }}>
+                                Filter <Icon type="filter" />
+                            </Button>
+                        </Dropdown>
                         {this.state.viewType==="a" ? 
-                        <DashboardList events={this.state.future ? this.props.course.events : this.props.course.eventsNow} onModalOpen={this.onModalOpen} onModalClose={this.onModalClose}/> : 
+                        <DashboardList 
+                            events={this.props.course.events
+                            .filter(event => this.state.future ? true : event.date && (new Date(event.date)).getTime() <= Date.now())
+                            .filter(event => this.state.due ? true : event.eventType !== "due")} 
+                            onModalOpen={this.onModalOpen} 
+                            onModalClose={this.onModalClose}/> : 
                         <DashboardCalendar events={this.props.course.events} onModalOpen={this.onModalOpen} onModalClose={this.onModalClose}/>}
                     </div>
                 );
