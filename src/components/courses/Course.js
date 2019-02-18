@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import {
     Button, Layout, Menu, Breadcrumb, Icon
@@ -14,11 +15,18 @@ const { Content, Sider } = Layout;
 const MenuItems = [
     {
         title: "Dashboard",
-        icon: "home"
+        icon: "home",
+        path: ""
     },
     {
         title: "About",
-        icon: "info-circle"
+        icon: "info-circle",
+        path: "/about"
+    },
+    {
+        title: "Links",
+        icon: "link",
+        path: "/links"
     }
 ]
 
@@ -29,7 +37,6 @@ class Course extends React.Component {
 
         collapsible: true,
         collapsed: false,
-        openKeys: [],
     };
 
     onCollapse = () => {
@@ -50,15 +57,6 @@ class Course extends React.Component {
         e.stopPropagation();
         eventsCopy[index].visible = false;           
         this.setState({ course: {...this.state.course, events: eventsCopy}}); 
-    }
-
-    onOpenChange = (openKeys) => {
-        // Only allow for one submenu to be open at a time
-        this.state.openKeys.forEach((val, i, arr) => {
-            openKeys = openKeys.filter(e => e !== val); 
-        });
-        
-        this.setState({openKeys: openKeys});
     }
 
     onResize = () => {
@@ -86,26 +84,28 @@ class Course extends React.Component {
         axios.get(SERVER_URL + '/api/courses')
             .then(res => {
                 courses = res.data;
-                // console.log(courses);    
                 
-                // The path needs to be the exact name of the course
-                let path = this.props.location.pathname.split('/');
-                path[path.length - 1] = path[path.length - 1].replace(/-/g, ' ');
-                courses.forEach((val, i) => {
-                    // console.log(val.name);
-                    if (val.name.toLowerCase() === path[path.length - 1]) {
-                        path[path.length - 1] = val.name;
+                // Current MenuItem
+                let menuItemIndex = 0;
+                // Set the base path for each MenuItem
+                let path = window.location.href.split('/');
+                MenuItems.forEach((val, i) => {
+                    if (path.indexOf(val.path.substring(1)) !== -1) {
+                        menuItemIndex = i;
                     }
-                })
+                    val.path = "/courses/" + path[path.indexOf("courses") + 1] + val.path;
+                });                
 
-                let pathStr = "";
-                path.forEach((val, i, arr) => {
-                    pathStr += val;
-                    if (i < arr.length - 1) {
-                        pathStr += '/';
+                // The path needs to be the exact name of the course
+                let pathStrCourse = path[path.indexOf("courses") + 1].replace(/-/g, ' ');
+                courses.forEach((val, i) => {
+                    if (val.name.toLowerCase() === pathStrCourse) {
+                        pathStrCourse = val.name;
                     }
                 });
-                axios.get(SERVER_URL + '/api' + pathStr)
+
+                // Get course info
+                axios.get(SERVER_URL + '/api/courses/' + pathStrCourse)
                     .then(res => {
                         this.setState({
                             course: res.data
@@ -114,8 +114,6 @@ class Course extends React.Component {
                     });
 
                 // Get the events
-                let pathStrCourse = pathStr.split('/')
-                pathStrCourse = pathStrCourse[pathStrCourse.length - 1]
                 axios.get(SERVER_URL + '/api/events/course/' + pathStrCourse)
                     .then(res => {
                         let sortedByDate = res.data.sort((a, b) => {
@@ -126,7 +124,8 @@ class Course extends React.Component {
 
                         this.setState(prevState => ({
                             course: {...prevState.course, events: sortedByDate},
-                            view: "Dashboard"
+                            view: MenuItems[menuItemIndex].title,
+                            selectedKey: (menuItemIndex + 1).toString()
                         }));
                     });
 
@@ -152,20 +151,20 @@ class Course extends React.Component {
                 <Layout className="scroll-x">
                     <Sider collapsible={this.state.collapsible} collapsed={this.state.collapsed} trigger={null} width={200} style={{ background: '#fff' }}>
                     {this.state.collapsible ? <Button disabled={!this.state.collapsible} onClick={this.onCollapse} block icon={this.state.collapsed ? 'menu-unfold' : 'menu-fold'} style={{border: "none"}} /> : null}
+                    {this.state.view === "Loading" ? null :
                     <Menu
                         mode="inline"
-                        defaultSelectedKeys={['1']}
-                        openKeys={this.state.openKeys}
+                        defaultSelectedKeys={[this.state.selectedKey]}
                         onOpenChange={this.onOpenChange}
                         onSelect={this.onSelect}
                         style={{ height: '90%', borderRight: 0 }}
                     >
                         {
                             MenuItems.map((item, i) => (
-                                <Menu.Item key={"" + (i + 1)} title={item.title}>{this.state.collapsed ? <Icon type={item.icon} /> : item.title}</Menu.Item>
+                                <Menu.Item key={(i + 1).toString()} title={item.title}><Link to={`${item.path}`}>{this.state.collapsed ? <Icon type={item.icon} /> : item.title}</Link></Menu.Item>
                             ))
                         }
-                    </Menu>
+                    </Menu>}
                     </Sider>
                     <Layout style={{ padding: '0 24px 24px' }}>
                     <Breadcrumb style={{ margin: '16px 0' }}>
@@ -186,6 +185,7 @@ class Course extends React.Component {
                             onModalClose={this.onModalClose}
                             />
                         <About course={this.state.course} visible={this.state.view === "About"} />
+                        {this.props.children}
                     </Content>
                     </Layout>
                 </Layout>

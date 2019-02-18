@@ -46,6 +46,7 @@ INSTALLED_APPS = [
 
   'calendarevents',
   'courses',
+  'links'
 ]
 
 MIDDLEWARE = [

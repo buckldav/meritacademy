@@ -6,7 +6,6 @@ import {
 import { BOOTSTRAP_MAX } from '../../Constants';
 import Games from './Games';
 import Sites from './Sites';
-import MobileApps from './MobileApps';
 
 const { Content, Sider } = Layout;
   
@@ -23,12 +22,6 @@ const MenuItems = [
         path: "/projects/sites",
         component: Sites
     },
-    {
-        title: "Mobile Apps",
-        icon: "mobile",
-        path: "/projects/mobile",
-        component: MobileApps
-    }
 ]
 
 class Projects extends React.Component {

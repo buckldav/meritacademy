@@ -47,17 +47,17 @@ const DashboardList = props => {
                         onClick={() => {props.onModalOpen(item)}}
                         >
                             <List.Item>
-                            <List.Item.Meta
-                                avatar={<Avatar icon={EventStyles[item.eventType].icon} shape="square" style={{backgroundColor: EventStyles[item.eventType].color}} />}
-                                title={item.date}
-                                description={item.text}
-                            />
-                                <DashboardModal 
-                                    item={item}
-                                    onModalOpen={props.onModalOpen}
-                                    onModalClose={props.onModalClose}
+                                <List.Item.Meta
+                                    avatar={<Avatar icon={EventStyles[item.eventType].icon} shape="square" style={{backgroundColor: EventStyles[item.eventType].color}} />}
+                                    title={item.date}
+                                    description={item.text}
                                 />
                             </List.Item>
+                            <DashboardModal 
+                                item={item}
+                                onModalOpen={props.onModalOpen}
+                                onModalClose={props.onModalClose}
+                            />
                         </button>
                     );
                 }
@@ -116,14 +116,14 @@ const DashboardCalendar = props => {
 
 const FilterMenu = props => (
     <Menu>
-      <Menu.Item key="1"><Switch checkedChildren={<Icon type="check" />} unCheckedChildren={<Icon type="close" />} defaultChecked={false} onChange={props.handleFuture} /> Show future</Menu.Item>
-      <Menu.Item key="2"><Switch checkedChildren={<Icon type="check" />} unCheckedChildren={<Icon type="close" />} defaultChecked={false} onChange={props.handleDue} /> Show due dates</Menu.Item>
+      <Menu.Item key="1"><Switch size="small" defaultChecked={false} onChange={props.handleFuture} style={{marginRight: "8px"}} />Show future</Menu.Item>
+      <Menu.Item key="2"><Switch size="small" defaultChecked={false} onChange={props.handleDue} style={{marginRight: "8px"}} />Show due dates</Menu.Item>
     </Menu>
 );
 
 class Dashboard extends React.Component {
     state = {
-        viewType: "a",
+        viewType: "dashboard",
         due: false,
         future: false
     }
@@ -153,18 +153,18 @@ class Dashboard extends React.Component {
             if (this.props.course !== {}) {
                 return (
                     <div>
-                        <RadioGroup onChange={this.onChange} defaultValue="a">
-                            <RadioButton value="a">List</RadioButton>
-                            <RadioButton value="b">Calendar</RadioButton>
+                        <RadioGroup onChange={this.onChange} defaultValue="dashboard">
+                            <RadioButton value="dashboard">List</RadioButton>
+                            <RadioButton value="calendar">Calendar</RadioButton>
                             
                         </RadioGroup>
                         
-                        <Dropdown overlay={<FilterMenu handleFuture={this.handleFuture} handleDue={this.handleDue} />} trigger={['click']}>
+                        <Dropdown disabled={this.state.viewType === "calendar"} overlay={<FilterMenu handleFuture={this.handleFuture} handleDue={this.handleDue} />} trigger={['click']}>
                             <Button style={{ marginLeft: 8 }}>
                                 Filter <Icon type="filter" />
                             </Button>
                         </Dropdown>
-                        {this.state.viewType==="a" ? 
+                        {this.state.viewType==="dashboard" ? 
                         <DashboardList 
                             events={this.props.course.events
                             .filter(event => this.state.future ? true : event.date && (new Date(event.date)).getTime() <= Date.now())
