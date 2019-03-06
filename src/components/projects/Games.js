@@ -4,6 +4,13 @@ import { Menu, Dropdown, Icon } from 'antd';
 
 const GameInfo = [
     {
+        title: "Back in Time",
+        author: "Dylan P",
+        engine: "C#",
+        instructions: "Choose your own adventure game. Type in your choices exactly.",
+        url: "https://repl.it/@dylanperaza961/Back-In-Time?lite=true&outputonly=1"
+    },
+    {
         title: "Cat Platform",
         author: "Luke E",
         engine: "Scratch",
@@ -36,7 +43,8 @@ const GameInfo = [
 const EngineUrls = {
     "Scratch": "https://scratch.mit.edu/",
     "Godot": "https://godotengine.org/",
-    "Unity": "https://unity3d.com/"
+    "Unity": "https://unity3d.com/",
+    "C#": "https://repl.it/"
 }
 
 
