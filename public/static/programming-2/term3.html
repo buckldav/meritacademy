@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="author" content="David Buckley">
+  <link rel="shortcut icon" href="../favicon.ico">
+  <title>Term 3 Study Guide</title>
+
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/starter-template/">
+
+  <!-- Bootstrap core CSS -->
+  <link href="https://getbootstrap.com/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <style>
+    code {
+      color: #0A3 !important;
+      font-weight: 600;
+    }
+
+    .navbar,
+    .home-link {
+      font-family: 'Anonymous Pro', monospace;
+    }
+
+    .home-link, .home-link:hover, .home-link:visited, .home-link:active {
+      color: #FFF;
+      text-decoration: none;
+      margin-right: 1em;
+    }
+    
+    .site-main {
+      margin-top: 70px;
+    }
+
+    .jumptarget::before {
+      content:"";
+      display:block;
+      height: 70px; /* fixed header height*/
+      margin: -70px 0 0; /* negative fixed header height */
+    }
+    
+    h2 {
+      margin: 0.5em 0;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <a class="home-link" href="http://meritacademy.tech/">meritacademy.tech</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#top">Top</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#io">I/O</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#strings">Strings</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#obj-arr-list">Objects, Arrays, Lists</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <main role="main" class="container site-main">
+
+    <a class="jumptarget" name="top">
+      <header class="row">
+        <div class="col-xl-12">
+          <h1>Term 3 Study Guide</h1>
+          <p>This is a study guide that will help you refresh the concepts you've learned thus far in Programming 2.</p>
+        </div>
+      </header>
+    </a>
+
+    <a class="jumptarget" name="io">
+      <article class="row">
+        <div class="col-xl-12">
+          <h2>Input / Output</h2>
+          <p>You need to know how to properly get input from the user and use their input to perform certain logical operations, finally returning output to them.</p>
+          <p>Input is typically done with <code>string input = Console.ReadLine();</code></p>
+          <p>
+            In C#, output is typically done with <code>Console.WriteLine($"Output");</code><br/>
+            When outputting variables, we use String Interpolation which is done with a <code>$</code> before the quotation marks. Example:
+          </p>
+          <pre><code>
+  string food = "cheese";
+  Console.WriteLine($"My favorite food is {word}.");
+  
+  Output: My favorite food is cheese.
+          </code></pre>
+          <p>Here's the C# tutorial we did towards the start of class which has a few examples of input and output.</p>
+          <iframe height="500px" width="100%" src="https://repl.it/@buckldav/C-Sharp-Tutorial?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+          <p>NOTE: By default, <code>Console.ReadLine();</code> reads in strings, even if the inputs are numbers.</p>
+        </div>
+      </article>
+    </a>
+
+    <a class="jumptarget" name="strings">
+      <article class="row">
+        <div class="col-xl-12">
+          <h2>Strings</h2>
+          <p>Strings are nothing more than an array of characters, including letters and numbers. You need to know how to manipulate them and understand some of the methods associated with them.</p>
+          <p>Methods to know:</p>
+          <ul>
+            <li>Declaring strings</li>
+            <li>String length</li>
+            <li>String concantenation</li>
+            <li>Substrings</li>
+            <li>String insertion</li>
+            <li>Escape sequences</li>
+            <li>To lowercase, uppercase</li>
+          </ul>
+          <iframe height="500px" width="100%" src="https://repl.it/@buckldav/Strings?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+          <p>NOTE: Remember that even though we can concantenate strings in output, it's better to simply use string interpolation.</p>
+        </div>
+      </article>
+    </a>
+
+    <a class="jumptarget" name="obj-arr-list">
+      <article class="row">
+        <div class="col-xl-12">
+          <h2>Objects, Arrays, and Lists</h2>
+          <p>NOTE: The test this term will only check your knowledge related to the concepts and ideas of the following, not any specific code syntax. We will cover that more in Term 4.</p>
+          <h4>Objects</h4>
+          <p>Objects are containers that can hold several data members and functions. They are a way to represent physical objects in computer code.</p>
+          <p>All objects have:</p>
+          <ul>
+            <li>Private data members (variables)</li>
+            <li>A constructor (a way to make an instance of an object)</li>
+            <li>Public getters and setters</li>
+            <li>Public methods (functions)</li>
+          </ul>
+          <p>Here's an example of a Ball represented as an object:</p>
+          <pre><code>
+  class Ball {
+    // data members
+    private int radius
+    private float xVelocity
+    private float yVelocity
+
+    // constructor
+    public Ball() {
+      this.radius = 2
+      xVelocity = 2
+      yVelocity = 0
+    }
+
+    // getters and setters
+    public int GetRadius()
+    public float GetXVelocity()
+    public float GetYVelocity()
+    public void SetRadius(int radius)
+    public void SetXVelocity(int radius)
+    public void SetYVelocity(int radius)
+
+    // methods
+    public void Throw()
+    public void Collide()
+    public void Bounce()
+  }
+          </code></pre>
+          <h4>Arrays and Lists</h4>
+          <p>Arrays and Lists are both collections that can hold several objects.</p>
+          <p>The key thing to know for now about arrays and lists are:</p>
+          <ul>
+            <li>Arrays are static (fixed size). If you make an array of 5 numbers, you cannot add an additional number on the end.</li>
+            <li>Lists are dynamic (variable size). If you have a list of 10 names, you can add another name making the list have 11 names. Likewise, you may remove items from a list and it will resize accordingly.</li>
+            <li>Arrays and lists both start counting their indicies at 0. Example below:</li>
+          </ul>
+          <pre><code>
+  names = {"Boggis", "Bunce", "Bean"}
+  names[0] = "Boggis"
+  names[1] = "Bunce"
+  names[2] = "Bean"
+  names.Length = 3            
+          </code></pre>
+        </div>
+      </article>
+    </a>
+  </main><!-- /.container -->
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script>window.jQuery || document.write('<script src="/docs/4.3/assets/js/vendor/jquery-slim.min.js"><\/script>')</script><script src="https://getbootstrap.com/docs/4.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
+</body>
+</html>
