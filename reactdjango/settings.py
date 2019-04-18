@@ -27,6 +27,7 @@ if DEBUG:
   SECRET_KEY = os.environ["SECRET_KEY"]
 else:
   SECRET_KEY = os.environ["DJANGO_SECRET_KEY"]
+  SECURE_SSL_REDIRECT = True
 
 ALLOWED_HOSTS = ['meritacademy.herokuapp.com', 'meritacademy.tech', 'www.meritacademy.tech', '127.0.0.1']
 
