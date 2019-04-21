@@ -64,7 +64,7 @@ class Courses extends React.Component {
                 {!this.state.loaded ? <div style={{marginTop: "24px"}}><Loading /></div> :
                 <List
                     grid={{
-                        gutter: 16, xs: 1, sm: 2, md: 3, lg: 4, xl: 6, xxl: 6,
+                        gutter: 16, xs: 1, sm: 2, md: 3, lg: 4, xl: 4, xxl: 6,
                     }}
                     dataSource={this.state.courses}
                     renderItem={item => (
@@ -82,7 +82,10 @@ class Courses extends React.Component {
                         </List.Item>
                     )}
                     style={{
-                        padding: "50px"
+                        padding: "50px",
+                        maxWidth: "1200px",
+                        marginLeft: "auto",
+                        marginRight: "auto"
                     }}
                 />
                 }

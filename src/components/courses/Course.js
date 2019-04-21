@@ -9,6 +9,7 @@ import About from './course/About';
 import Loading from '../Loading';
 
 import { SERVER_URL, BOOTSTRAP_MAX } from '../../Constants';
+import CourseLinks from "./course/CourseLinks";
 
 const { Content, Sider } = Layout;
   
@@ -37,6 +38,7 @@ class Course extends React.Component {
 
         collapsible: true,
         collapsed: false,
+        sidebarRight: true
     };
 
     onCollapse = () => {
@@ -69,6 +71,12 @@ class Course extends React.Component {
             // Only expand the menu once onResize
             this.setState({collapsible: true});
             this.setState({collapsed: false});
+        }
+
+        if (windowWidth < BOOTSTRAP_MAX.sm) {
+            this.setState({sidebarRight: false});
+        } else {
+            this.setState({sidebarRight: true});
         }
     }
 
@@ -150,43 +158,45 @@ class Course extends React.Component {
             <Layout className="scroll-x-container">
                 <Layout className="scroll-x">
                     <Sider collapsible={this.state.collapsible} collapsed={this.state.collapsed} trigger={null} width={200} style={{ background: '#fff' }}>
-                    {this.state.collapsible ? <Button disabled={!this.state.collapsible} onClick={this.onCollapse} block icon={this.state.collapsed ? 'menu-unfold' : 'menu-fold'} style={{border: "none"}} /> : null}
-                    {this.state.view === "Loading" ? null :
-                    <Menu
-                        mode="inline"
-                        defaultSelectedKeys={[this.state.selectedKey]}
-                        onOpenChange={this.onOpenChange}
-                        onSelect={this.onSelect}
-                        style={{ height: '90%', borderRight: 0 }}
-                    >
-                        {
-                            MenuItems.map((item, i) => (
-                                <Menu.Item key={(i + 1).toString()} title={item.title}><Link to={`${item.path}`}>{this.state.collapsed ? <Icon type={item.icon} /> : item.title}</Link></Menu.Item>
-                            ))
+                        {this.state.collapsible ? <Button disabled={!this.state.collapsible} onClick={this.onCollapse} block icon={this.state.collapsed ? 'menu-unfold' : 'menu-fold'} style={{border: "none"}} /> : null}
+                        {this.state.view === "Loading" ? null :
+                            <Menu
+                                mode="inline"
+                                defaultSelectedKeys={[this.state.selectedKey]}
+                                onOpenChange={this.onOpenChange}
+                                onSelect={this.onSelect}
+                                style={{ borderRight: 0 }}
+                            >
+                                {
+                                    MenuItems.map((item, i) => (
+                                        <Menu.Item key={(i + 1).toString()} title={item.title}><Link to={`${item.path}`}>{this.state.collapsed ? <Icon type={item.icon} /> : item.title}</Link></Menu.Item>
+                                    ))
+                                }
+                            </Menu>
                         }
-                    </Menu>}
+                        
                     </Sider>
                     <Layout style={{ padding: '0 24px 24px' }}>
-                    <Breadcrumb style={{ margin: '16px 0' }}>
-                        <Breadcrumb.Item>Home</Breadcrumb.Item>
-                        <Breadcrumb.Item>Courses</Breadcrumb.Item>
-                        <Breadcrumb.Item>{this.state.course.name}</Breadcrumb.Item>
-                    </Breadcrumb>
-                    <Content style={{
-                        background: '#fff', padding: 24, margin: 0, minHeight: 280
-                    }}
-                    >
-                        
-                        {this.state.view === "Loading" ? <Loading /> : <h1>{this.state.course.name}</h1> }
-                        <Dashboard 
-                            course={this.state.course} 
-                            visible={this.state.view === "Dashboard"} 
-                            onModalOpen={this.onModalOpen}
-                            onModalClose={this.onModalClose}
-                            />
-                        <About course={this.state.course} visible={this.state.view === "About"} />
-                        {this.props.children}
-                    </Content>
+                        <Breadcrumb style={{ margin: '16px 0' }}>
+                            <Breadcrumb.Item>Home</Breadcrumb.Item>
+                            <Breadcrumb.Item>Courses</Breadcrumb.Item>
+                            <Breadcrumb.Item>{this.state.course.name}</Breadcrumb.Item>
+                        </Breadcrumb>
+                        <Content style={{
+                            background: '#fff', padding: 24, margin: 0, minHeight: 280
+                        }}
+                        >
+                            <h1>{this.state.course.name}</h1>
+                            <Dashboard 
+                                course={this.state.course} 
+                                visible={this.state.view === "Dashboard"} 
+                                onModalOpen={this.onModalOpen}
+                                onModalClose={this.onModalClose}
+                                sidebarRight={this.state.sidebarRight}
+                                />
+                            <About course={this.state.course} visible={this.state.view === "About"} />
+                            {this.props.children}
+                        </Content>
                     </Layout>
                 </Layout>
             </Layout>

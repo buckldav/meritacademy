@@ -1,5 +1,5 @@
 import React from 'react';
-import { Avatar, List, Radio, Calendar, Badge, Modal, Button, Switch, Menu, Dropdown, Icon } from 'antd';
+import { Avatar, List, Radio, Calendar, Badge, Modal, Button, Switch, Menu, Dropdown, Icon, Row, Col, Card } from 'antd';
 import { EventStyles } from './EventStyles';
 import Iframe from 'react-iframe';
 
@@ -151,12 +151,12 @@ class Dashboard extends React.Component {
     render() {
         if (this.props.visible) {
             if (this.props.course !== {}) {
-                return (
-                    <div>
+                return (         
+                    <Row gutter={24}>
+                        <Col span={this.props.sidebarRight ? 16 : 24}>
                         <RadioGroup onChange={this.onChange} defaultValue="dashboard">
                             <RadioButton value="dashboard">List</RadioButton>
                             <RadioButton value="calendar">Calendar</RadioButton>
-                            
                         </RadioGroup>
                         
                         <Dropdown disabled={this.state.viewType === "calendar"} overlay={<FilterMenu handleFuture={this.handleFuture} handleDue={this.handleDue} />} trigger={['click']}>
@@ -164,15 +164,33 @@ class Dashboard extends React.Component {
                                 Filter <Icon type="filter" />
                             </Button>
                         </Dropdown>
-                        {this.state.viewType==="dashboard" ? 
-                        <DashboardList 
-                            events={this.props.course.events
-                            .filter(event => this.state.future ? true : event.date && (new Date(event.date)).getTime() <= Date.now())
-                            .filter(event => this.state.due ? true : event.eventType !== "due")} 
-                            onModalOpen={this.onModalOpen} 
-                            onModalClose={this.onModalClose}/> : 
-                        <DashboardCalendar events={this.props.course.events} onModalOpen={this.onModalOpen} onModalClose={this.onModalClose}/>}
-                    </div>
+                            {this.state.viewType==="dashboard" ? 
+                            <DashboardList 
+                                events={this.props.course.events
+                                .filter(event => this.state.future ? true : event.date && (new Date(event.date)).getTime() <= Date.now())
+                                .filter(event => this.state.due ? true : event.eventType !== "due")} 
+                                onModalOpen={this.onModalOpen} 
+                                onModalClose={this.onModalClose}/> : 
+                            <DashboardCalendar events={this.props.course.events} onModalOpen={this.onModalOpen} onModalClose={this.onModalClose}/>}
+                        </Col>
+                        <Col span={8} style={this.props.sidebarRight ? {} : {display: "none"}}>
+                        <Card
+                            title="About the Course"
+                            style={{marginBottom: 24}}
+                        >
+                            {this.props.course.description}
+                        </Card>
+                        <Card
+                            title="About the Teacher"
+                        >
+                            <p>Mr. Buckley has been teaching Computer Science at Merit since 2018. He loves learning new skills related to computers and technology and loves interacting with others.</p>
+                            <h4>Email</h4>
+                            <p><a style={{wordWrap: "break-word"}} href="mailto:david.buckley@meritacademy.org" target="_blank" rel="noopener norefferer">david.buckley@meritacademy.org</a></p>
+                            <h4>Website</h4>
+                            <p><a style={{wordWrap: "break-word"}} href="https://www.davidjaybuckley.com">https://www.davidjaybuckley.com</a></p>
+                        </Card>
+                        </Col>
+                    </Row>   
                 );
             }
         }
