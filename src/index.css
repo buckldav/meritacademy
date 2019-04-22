@@ -22,23 +22,30 @@ body {
     cursor: pointer;
 }
 
-.scroll-x
-{
+.modal-footer, .modal-footer>* {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  text-align: left;
+}
+
+#modal-footer-buttons>* {
+  margin-left: 8px;
+}
+
+.scroll-x {
   min-width: var(--bootstrap-xs-max);
 }
 
-.scroll-x-container
-{
+.scroll-x-container {
   overflow-x: auto;
 }
 
-.scroll-x-container::-webkit-scrollbar
-{
+.scroll-x-container::-webkit-scrollbar {
 	height: 6px;
 }
 
-.scroll-x-container::-webkit-scrollbar-thumb
-{
+.scroll-x-container::-webkit-scrollbar-thumb {
   border-radius: 10px;
   box-shadow: inset 0 0 6px rgba(0,0,0,.1);
 	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.1);

@@ -15,12 +15,13 @@ const DashboardModal = props => (
         onCancel={(e) => {props.onModalClose(e, props.item)}}
         width={800}
         style={{top: 20}}
-        footer={[
-            <div style={{float:"left"}}>{props.item.driveUrl ? props.item.text : null}</div>,
-            <Button key="close" type="primary" onClick={(e) => {props.onModalClose(e, props.item)}}>
-                Close
-            </Button>
-        ]}
+        footer={props.item.driveUrl ? <footer className="modal-footer">
+            <div id="model-footer-text">{props.item.text}</div>
+            <div id="modal-footer-buttons">
+                <Button href={props.item.driveUrl} target="_blank" rel="noopener noreferrer" icon="fullscreen" />
+                {/* <Button icon="printer" /> */}
+            </div>
+        </footer> : null}
     >
         {!props.item.driveUrl ? props.item.text :
         <Iframe url={props.item.driveUrl}
