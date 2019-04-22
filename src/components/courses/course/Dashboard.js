@@ -166,7 +166,7 @@ class Dashboard extends React.Component {
                         </Dropdown>
                             {this.state.viewType==="dashboard" ? 
                             <DashboardList 
-                                events={this.props.course.events
+                                events={!this.props.course ? null : this.props.course.events
                                 .filter(event => this.state.future ? true : event.date && (new Date(event.date)).getTime() <= Date.now())
                                 .filter(event => this.state.due ? true : event.eventType !== "due")} 
                                 onModalOpen={this.onModalOpen} 
@@ -174,20 +174,23 @@ class Dashboard extends React.Component {
                             <DashboardCalendar events={this.props.course.events} onModalOpen={this.onModalOpen} onModalClose={this.onModalClose}/>}
                         </Col>
                         <Col span={8} style={this.props.sidebarRight ? {} : {display: "none"}}>
-                        <Card
-                            title="About the Course"
-                            style={{marginBottom: 24}}
-                        >
-                            {this.props.course.description}
+                        <Card style={{marginBottom: 24}}>
+                            <Card.Meta
+                                title="About the Course"
+                                description={this.props.course.description}
+                            />
                         </Card>
-                        <Card
-                            title="About the Teacher"
-                        >
-                            <p>Mr. Buckley has been teaching Computer Science at Merit since 2018. He loves learning new skills related to computers and technology and loves interacting with others.</p>
-                            <h4>Email</h4>
-                            <p><a style={{wordWrap: "break-word"}} href="mailto:david.buckley@meritacademy.org" target="_blank" rel="noopener norefferer">david.buckley@meritacademy.org</a></p>
-                            <h4>Website</h4>
-                            <p><a style={{wordWrap: "break-word"}} href="https://www.davidjaybuckley.com">https://www.davidjaybuckley.com</a></p>
+                        <Card>
+                            <Card.Meta 
+                                title="About the Teacher"
+                                description={<>
+                                    <p>Mr. Buckley has been teaching Computer Science at Merit since 2018. He loves learning new skills related to computers and technology and loves interacting with others.</p>
+                                    <h4>Email</h4>
+                                    <p><a style={{wordWrap: "break-word"}} href="mailto:david.buckley@meritacademy.org" target="_blank" rel="noopener noreferrer">david.buckley@meritacademy.org</a></p>
+                                    <h4>Website</h4>
+                                    <p><a style={{wordWrap: "break-word"}} href="https://www.davidjaybuckley.com">https://www.davidjaybuckley.com</a></p>
+                                </>}
+                            />
                         </Card>
                         </Col>
                     </Row>   

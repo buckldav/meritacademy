@@ -5,6 +5,8 @@
 body {
   margin: 0;
   padding: 0;
+  min-height: 100vh;
+  background: #f0f2f5;
 }
 
 .button-no-style,
@@ -52,4 +54,40 @@ body {
   #main-nav {
     margin: 0 auto;
   }
+}
+
+/* Ant design overrides */
+.ant-card-meta-title {
+  text-align: center;
+}
+
+.card-link {
+  color: rgba(0, 0, 0, 0.85);
+}
+
+.card-link, .card-link:hover, .card-link:active, .card-link:focus {
+  text-decoration: none;
+}
+
+.card-link:hover>div {
+  -webkit-transform: translateY(0px);
+  transform: translateY(0px);
+}
+
+.card-link>div {
+  width:100%;
+  height:100%;
+  max-height: 180px;
+  overflow: hidden;
+  -webkit-transform: translateY(2px);
+  transform: translateY(2px);
+  -webkit-transition: transform 0.2s ease 0s;
+  transition: transform 0.2s ease 0s;
+}
+
+.card-list {
+  padding: 48px 24px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }

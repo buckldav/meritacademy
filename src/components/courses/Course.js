@@ -9,7 +9,6 @@ import About from './course/About';
 import Loading from '../Loading';
 
 import { SERVER_URL, BOOTSTRAP_MAX } from '../../Constants';
-import CourseLinks from "./course/CourseLinks";
 
 const { Content, Sider } = Layout;
   
@@ -176,28 +175,30 @@ class Course extends React.Component {
                         }
                         
                     </Sider>
-                    <Layout style={{ padding: '0 24px 24px' }}>
-                        <Breadcrumb style={{ margin: '16px 0' }}>
-                            <Breadcrumb.Item>Home</Breadcrumb.Item>
-                            <Breadcrumb.Item>Courses</Breadcrumb.Item>
-                            <Breadcrumb.Item>{this.state.course.name}</Breadcrumb.Item>
-                        </Breadcrumb>
-                        <Content style={{
-                            background: '#fff', padding: 24, margin: 0, minHeight: 280
-                        }}
-                        >
-                            <h1>{this.state.course.name}</h1>
-                            <Dashboard 
-                                course={this.state.course} 
-                                visible={this.state.view === "Dashboard"} 
-                                onModalOpen={this.onModalOpen}
-                                onModalClose={this.onModalClose}
-                                sidebarRight={this.state.sidebarRight}
-                                />
-                            <About course={this.state.course} visible={this.state.view === "About"} />
-                            {this.props.children}
-                        </Content>
-                    </Layout>
+                    {this.state.view === "Loading" ? <Loading /> :
+                        <Layout style={{ padding: '0 24px 24px' }}>
+                            <Breadcrumb style={{ margin: '16px 0' }}>
+                                <Breadcrumb.Item>Home</Breadcrumb.Item>
+                                <Breadcrumb.Item>Courses</Breadcrumb.Item>
+                                <Breadcrumb.Item>{this.state.course.name}</Breadcrumb.Item>
+                            </Breadcrumb>
+                            <Content style={{
+                                background: '#fff', padding: 24, margin: 0, minHeight: 280
+                            }}
+                            >
+                                <h1>{this.state.course.name}</h1>
+                                <Dashboard 
+                                    course={this.state.course} 
+                                    visible={this.state.view === "Dashboard"} 
+                                    onModalOpen={this.onModalOpen}
+                                    onModalClose={this.onModalClose}
+                                    sidebarRight={this.state.sidebarRight}
+                                    />
+                                <About course={this.state.course} visible={this.state.view === "About"} />
+                                {this.props.children}
+                            </Content>
+                        </Layout>
+                    }
                 </Layout>
             </Layout>
         );

@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { List, Card, Button } from 'antd';
+import { List, Card } from 'antd';
 import Loading from '../Loading';
 
 import { SERVER_URL } from '../../Constants';
@@ -15,10 +15,6 @@ const styles = {
         margin: 0,
         padding: "18px 0", 
         backgroundImage: "linear-gradient(to bottom, transparent, white)"
-    },
-    card: {
-        maxHeight: "165.6px", 
-        overflow: "hidden",
     }
 }
 
@@ -45,51 +41,33 @@ class Courses extends React.Component {
             });
     }
 
-    onArrowClick(e) {
-        // let button = e.target;
-        let card = e.target.parentElement.parentElement.parentElement.parentElement;
-        
-        if (card.style.maxHeight !== null && card.style.maxHeight !== '') {
-            // Expand
-            card.style.maxHeight = null;
-        } else {
-            // Retract
-            card.style.maxHeight = styles.card.maxHeight;
-        }
-    }
-
     render() {
         return (
-            <div>
+            <>
+                <h1 style={{textAlign: "center", margin: "24px 0 0"}}>Courses</h1>
                 {!this.state.loaded ? <div style={{marginTop: "24px"}}><Loading /></div> :
                 <List
+                    className="card-list"
                     grid={{
-                        gutter: 16, xs: 1, sm: 2, md: 3, lg: 4, xl: 4, xxl: 6,
+                        gutter: 16, xs: 1, sm: 2, md: 3, lg: 4, xl: 4, xxl: 4,
                     }}
                     dataSource={this.state.courses}
                     renderItem={item => (
                         <List.Item> 
-                            <Card 
-                                title={<a href={"/courses/" + item.name.replace(/\s+/g, '-').toLowerCase()} style={{color: "rgba(0, 0, 0, 0.85)"}}>{item.name}</a>} 
-                                extra={<Button icon="caret-down" style={{border: 0}} onClick={this.onArrowClick} />}
-                                style={styles.card}
-                            >
-                                {item.description} 
-                                <hr style={{borderWidth: 0}} />
-                                {item.teacher2 == null ? "Teacher: " + item.teacher : "Teachers: " + item.teacher + " & " + item.teacher2}
-                                <div style={styles.fade}></div>
-                            </Card>
+                            <a href={"/courses/" + item.name.replace(/\s+/g, '-').toLowerCase()} className="card-link">
+                                <Card>
+                                    <Card.Meta
+                                        title={item.name} 
+                                        description={<div><p>{item.description}</p><p>{item.teacher2 == null ? "Teacher: " + item.teacher : "Teachers: " + item.teacher + " & " + item.teacher2}</p></div>}
+                                    />
+                                    <div style={styles.fade}></div>
+                                </Card>
+                            </a>
                         </List.Item>
                     )}
-                    style={{
-                        padding: "50px",
-                        maxWidth: "1200px",
-                        marginLeft: "auto",
-                        marginRight: "auto"
-                    }}
                 />
                 }
-            </div>
+            </>
         );
     }
 }
