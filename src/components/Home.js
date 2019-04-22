@@ -3,8 +3,8 @@ import React, { Component } from "react";
 import { Layout, List, Card } from "antd";
 import './Home.css';
 
-import { BOOTSTRAP_MAX } from '../Constants';
-const SERVER_URL = "http://localhost:3000"
+import { BOOTSTRAP_MAX, SERVER_URL } from '../Constants';
+// const SERVER_URL = "http://localhost:3000"
 const { Content } = Layout;
 
 const HomeCards = [
