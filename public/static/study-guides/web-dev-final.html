@@ -1,0 +1,463 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="author" content="David Buckley">
+  <link rel="shortcut icon" href="../favicon.ico">
+  <title>Web Development Study Guide</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <a class="home-link" href="https://meritacademy.tech/">meritacademy.tech</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#top">Top</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#internet">The Internet</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#html">HTML</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#css">CSS</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#design">Web Design</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <main role="main" class="container site-main">
+
+    <a class="jumptarget" id="top">
+      <header class="row">
+        <div class="col-xl-12">
+          <h1>Web Development Study Guide</h1>
+          <p>This study guide will help you refresh the concepts in Web Development that will be on the state test.</p>
+        </div>
+      </header>
+    </a>
+
+    <a class="jumptarget" id="internet">
+      <article class="row">
+        <div class="col-xl-12">
+          <h2>The Internet</h2>
+          <h4>Vocabulary</h4>
+          <table>
+            <thead>
+              <th>Term</th>
+              <th>Definition</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td>The Internet</td>
+                <td>Refers literally to the wires and computers that make up the global network.</td>
+              </tr>
+              <tr>
+                <td>Internet Service Provider</td>
+                <td>(ISP) A company that allows you to physically connect to the internet as defined above. Examples: xfinity, CenturyLink, Google Fiber.</td>
+              </tr>
+              <tr>
+                <td>Web Servers</td>
+                <td>Special computers on the internet that host websites.</td>
+              </tr>
+              <tr>
+                <td>Broswer</td>
+                <td>A program (like Google Chrome) that accesses files on the internet from web servers and displays them in a human-readable form.</td>
+              </tr>
+              <tr>
+                <td>WiFi</td>
+                <td>A local wireless hotspot allowing access to the internet through the ISP.</td>
+              </tr>
+              <tr>
+                <td>Modem</td>
+                <td>The physical device that is connected to your ISP that you connect your computer through WiFi or ethernet.</td>
+              </tr>
+              <tr>
+                <td>Router</td>
+                <td>Connects multiple networks together and routes traffic between them.</td>
+              </tr>
+              <tr>
+                <td>Packets</td>
+                <td>Chunks of data sent over the internet from web servers to your browser upon request.</td>
+              </tr>
+              <tr>
+                <td>IP Address</td>
+                <td>The "telephone number" for a web server. Example: 10.1.1.1</td>
+              </tr>
+              <tr>
+                <td>Domain Name</td>
+                <td>
+                  <img src="https://winningwp.com/wp-content/uploads/2017/02/URL-3.png" alt="Domain Name Diagram"><br>
+                  TLD = Top Level Domain<br>
+                  SLD = Second Level Domain<br>
+                  URL = Uniform Resource Locator
+                </td>
+              </tr>
+              <tr>
+                <td>Domain Name Server</td>
+                <td>(DNS) Its main job is to translate between Domain Names and IP Addresses.</td>
+              </tr>
+            </tbody>
+          </table>
+          <h6>Internet Protocols</h6>
+          <table>
+            <thead>
+              <th>Term</th>
+              <th>Definition</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td>http</td>
+                <td>HyperText Transfer Protocol (http://): The way packets are sent over the web.</td>
+              </tr>
+              <tr>
+                <td>https</td>
+                <td>(https://) Same as http, but the packet data is encrypted.</td>
+              </tr>
+              <tr>
+                <td>ftp</td>
+                <td>File Transfer Protocol (file://): The way to access a file on a web server.</td>
+              </tr>
+              <tr>
+                <td>tcp/ip</td>
+                <td>Transmission Control Protocol/Internet Protocol: The data stream service across the internet.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+    </a>
+
+    <a class="jumptarget" id="html">
+      <article class="row">
+        <div class="col-xl-12">
+          <h2>HTML</h2>
+          <h4>Vocabulary</h4>
+          <table>
+            <thead>
+              <th>Term</th>
+              <th>Definition</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Tag</td>
+                <td>An opening tag for a paragraph is <code>&lt;p&gt;</code> and a closing tag is <code>&lt;/p&gt;</code></td>
+              </tr>
+              <tr>
+                <td>Element</td>
+                <td>A component of an HTML document, made up of an opening tag, closing tag, and content.</td>
+              </tr>
+              <tr>
+                <td>Nesting</td>
+                <td>Putting an HTML Element inside another element.
+                <pre><code>&lt;section&gt;
+  &lt;p&gt;This paragraph is nested inside the section&lt;/p&gt;
+&lt;/section&gt;</code></pre>
+                </td>
+              </tr>
+              <tr>
+                <td>Attribute</td>
+                <td>A detail associated with an HTML Element, of the format <code>attribute=""</code>. Belongs in the opening tag of the element.<br>
+                  Example of anchor tag with an href attribute: <code>&lt;a href="page.html"&gt;Page&lt;/a&gt;</code>.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <h4>The Foundational Structure of a Web Page</h4>
+          <pre><code>
+  &lt;!DOCTYPE html&gt;
+  &lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="description" content="Description of the web page for Search Engine Optimization"&gt;
+    &lt;title&gt;Title of the page (appears in the tab of the browser and on search engines)&lt;/title&gt;
+    &lt;link href="style.css" rel="stylesheet"&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;p&gt;Page Content&lt;/p&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;
+          </code></pre>
+          <h4>Naming, File Structure Conventions</h4>
+          <ul>
+            <li>The home page should be called index.html.</li>
+            <li>All filenames should be lowercase, with - instead of spaces.</li>
+            <li>That same convention (lowercase, -) is used for ids and classes. Example: <code>id="big-picture"</code>.</li>
+            <li>Use lowercase for elements. Example: <code>&lt;p&gt;</code> instead of <code>&lt;P&gt;</code>.</li>
+          </ul>
+          <h4>HTML Elements</h4>
+          <h6>Content</h6>
+          <table>
+            <thead>
+              <th>Tag</th>
+              <th>Description</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td>h1, h2, h3, h4, h5, h6</td>
+                <td>Headings, h1 is the biggest, h6 the smallest</td>
+              </tr>
+              <tr>
+                <td>p</td>
+                <td>Paragraph</td>
+              </tr>
+              <tr>
+                <td>a</td>
+                <td>Anchor tag, used for hyperlinks <br> 
+                  <code>href="index.html"</code> Used for internal links <br>
+                  <code>href="https://example.com"</code> Used for external links
+                </td>
+              </tr>
+              <tr>
+                <td>button</td>
+                <td>Button, the attribute <code>onclick</code> defines the behavior</td>
+              </tr>
+              <tr>
+                <td>img</td>
+                <td>For images, common attributes are: <br>
+                  <ul>
+                    <li><code>src</code> (Source of the image file)</li>
+                    <li><code>alt</code> (Alternate text to read or display if broken image)</li>
+                    <li><code>width</code>, <code>height</code></li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>iframe</td>
+                <td>Frame for embedding content from another site</td>
+              </tr>
+              <tr>
+                <td>audio</td>
+                <td>Audio element</td>
+              </tr>
+              <tr>
+                <td>video</td>
+                <td>Video element</td>
+              </tr>
+              <tr>
+                <td>canvas</td>
+                <td>Element for drawing and rendering graphics</td>
+              </tr>
+            </tbody>
+          </table>
+          <h6>Formatting</h6>
+          <table>
+            <thead>
+              <th>Tag</th>
+              <th>Description</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td>b</td>
+                <td>Bolds text</td>
+              </tr>
+              <tr>
+                <td>strong</td>
+                <td>Bolds text, and screen readers emphasize the text. Should be used instead of <code>&lt;b&gt;</code></td>
+              </tr>
+              <tr>
+                <td>i</td>
+                <td>Italicizes text</td>
+              </tr>
+              <tr>
+                <td>u</td>
+                <td>Underlines text</td>
+              </tr>
+              <tr>
+                <td>br</td>
+                <td>Line break, go to the next line</td>
+              </tr>
+              <tr>
+                <td>hr</td>
+                <td>Horizontal rule (line)</td>
+              </tr>
+            </tbody>
+          </table>
+          <h6>Layout Elements</h6>
+          <table>
+            <thead>
+              <th>Tag</th>
+              <th>Description</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td>header</td>
+                <td>Header</td>
+              </tr>
+              <tr>
+                <td>nav</td>
+                <td>Navigation</td>
+              </tr>
+              <tr>
+                <td>main</td>
+                <td>Main</td>
+              </tr>
+              <tr>
+                <td>section</td>
+                <td>Section</td>
+              </tr>
+              <tr>
+                <td>article</td>
+                <td>Article</td>
+              </tr>
+              
+              <tr>
+                <td>div</td>
+                <td>Divider, used when article or section don't describe the content</td>
+              </tr>
+              <tr>
+                <td>aside</td>
+                <td>Typically used as a sidebar</td>
+              </tr>
+              <tr>
+                <td>footer</td>
+                <td>Footer</td>
+              </tr>
+            </tbody>
+          </table>
+          <h6>Data Containers</h6>
+          <table>
+            <thead>
+              <th>Tag</th>
+              <th>Description</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td>ol</td>
+                <td>Ordered (numbered list)</td>
+              </tr>
+              <tr>
+                <td>ul</td>
+                <td>Unordered (bulleted list)</td>
+              </tr>
+              <tr>
+                <td>li</td>
+                <td>List Item</td>
+              </tr>
+              <tr>
+                <td>table</td>
+                <td>Table, children elements are <code>&lt;thead&gt;</code> and <code>&lt;tbody&gt;</code></td>
+              </tr>
+              <tr>
+                <td>th</td>
+                <td>Table heading (nested in <code>&lt;thead&gt;</code>)</td>
+              </tr>
+              <tr>
+                <td>tr</td>
+                <td>Table row (nested in <code>&lt;tbody&gt;</code>)</td>
+              </tr>
+              <tr>
+                <td>td</td>
+                <td>Table Data (nested in <code>&lt;tr&gt;</code>)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+    </a>
+
+    <a class="jumptarget" id="css">
+      <article class="row">
+        <div class="col-xl-12">
+          <h2>CSS</h2>
+          <h4>Vocabulary</h4>
+          <table>
+            <thead>
+              <th>Term</th>
+              <th>Definition</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Selector</td>
+                <td><pre><code>body {
+  font-family: Arial, sans-serif;
+}</code></pre></td>
+              </tr>
+              <tr>
+                <td>Stylesheet</td>
+                <td>A .css file where all the page's styling is located</td>
+              </tr>
+              <tr>
+                <td>Internal style</td>
+                <td>You may include a <code>&lt;style&gt;</code> tag in the head of your HTML document</td>
+              </tr>
+              <tr>
+                <td>Inline style</td>
+                <td>Example: <code>&lt;p style="color: green;"&gt;Green text&lt;/p&gt;</code></td>
+              </tr>
+            </tbody>
+          </table>
+          <p>The state test only requires you to know a few CSS properties:</p>
+          <table>
+            <thead>
+              <th>Property</th>
+              <th>Example</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Background Color</td>
+                <td><code>background-color: #ffffff;</code></td>
+              </tr>
+              <tr>
+                <td>Background Image</td>
+                <td><code>background-image: url(img.jpg);</code></td>
+              </tr>
+              <tr>
+                <td>Font Type</td>
+                <td><code>font-family: Arial, sans-serif;</code></td>
+              </tr>
+              <tr>
+                <td>Font Color</td>
+                <td><code>color: #000000;</code></td>
+              </tr>
+              <tr>
+                <td>Font Size</td>
+                <td><code>font-size: 24px;</code></td>
+              </tr>
+              <tr>
+                <td>Border</td>
+                <td><code>border: 1px solid red;</code><br>
+                Format: <code>border: width style color;</code></td>
+              </tr>
+            </tbody>
+          </table>
+          <h4>CSS Box Model</h4>
+          <img src="https://s3.amazonaws.com/viking_education/web_development/web_app_eng/css_box_model_chrome.png" alt="CSS Box Model">
+        </div>
+      </article>
+    </a>
+
+    <a class="jumptarget" id="design">
+      <article class="row">
+        <div class="col-xl-12">
+          <h2>Web Design</h2>
+          <p>When designing a website, you should do the following:</p>
+          <ol>
+            <li>Identify the purpose and audience for the website.</li>
+            <li>Wireframe the site (sketch out a plan of how the site should look and work).</li>
+            <li>Maintain consistency in design (use just a few standard fonts and colors).</li>
+            <li>Make site accessible to screen readers (alt tags in images, strong instead of bold, etc.).</li>
+          </ol>
+          <p>The 5 S's of User Experience, from <a href="https://crystalnyu.wordpress.com/2014/11/17/the-5s-of-ux-development-process/">this blog</a>:</p>
+
+          <img src="https://crystalnyu.files.wordpress.com/2014/11/final-version.jpg" alt="Picture of 5 S's of UX">
+          
+        </div>
+      </article>
+    </a>
+  </main><!-- /.container -->
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script>window.jQuery || document.write('<script src="/docs/4.3/assets/js/vendor/jquery-slim.min.js"><\/script>')</script><script src="https://getbootstrap.com/docs/4.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
+</body>
+</html>
