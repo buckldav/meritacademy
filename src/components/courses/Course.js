@@ -178,8 +178,7 @@ class Course extends React.Component {
                     {this.state.view === "Loading" ? <Loading /> :
                         <Layout style={{ padding: '0 24px 24px' }}>
                             <Breadcrumb style={{ margin: '16px 0' }}>
-                                <Breadcrumb.Item>Home</Breadcrumb.Item>
-                                <Breadcrumb.Item>Courses</Breadcrumb.Item>
+                                <Breadcrumb.Item as="a" href={window.location.origin + "/courses"}>Courses</Breadcrumb.Item>
                                 <Breadcrumb.Item>{this.state.course.name}</Breadcrumb.Item>
                             </Breadcrumb>
                             <Content style={{
