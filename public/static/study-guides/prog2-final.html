@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="author" content="David Buckley">
+  <link rel="shortcut icon" href="../favicon.ico">
+  <title>Final Study Guide</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <a class="home-link" href="https://meritacademy.tech/">meritacademy.tech</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#top">Top</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#io">I/O</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#operations">Operations</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#control">Control Structures</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#strings">Strings</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#obj-arr-list">Objects, Arrays, Lists</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#seq-files">Files</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <main role="main" class="container site-main">
+    <a class="jumptarget" id="top">
+      <header class="row jumptarget" id="top">
+        <div class="col-xl-12">
+          <h1>Programming Study Guide (C#)</h1>
+          <p>This is a study guide that will help you refresh the concepts you've learned this year in Programming 1 and 2.</p>
+          <h4>Intro to Software Engineering</h4>
+          <p>
+            Before we make software, we should know what types of software are out there and the different
+            implications of each. Click <a target="_blank" rel="noopener noreferrer" href="https://docs.google.com/document/d/1iJ2McipnNlWcEpQS9BR7RCkARD59hN294HyV0Fig8mQ">here</a>
+            for a worksheet to help you out.
+          </p>
+          <h4>What is an IDE?</h4>
+          <p>
+            An IDE is an integrated development environment. It's software that allows one to code efficiently,
+            usually including tools like code syntax highlighting, an integrated terminal, and workspaces to help
+            you organize your files. The IDE we are using in this class is Visual Studio and we will be programming in C#.
+            In Visual Studio, hitting "Run" both compiles your code (converts it to machine-readable code) and runs it. 
+            The game engine we will be using in this class is Unity, which uses C# as the scripting language.
+          </p>
+          <h4>What are the basic skills I'll need to know to program effectively?</h4>
+          <ul>
+            <li>
+              <h5>Algorithms: How to solve the problem</h5>
+              <p>
+                An algorithm is a step by step solution to a problem. Good programmers can take a large problem
+                and break it down into smaller steps.
+              </p>
+            </li>
+            <li>
+              <h5>Commenting and Documentation</h5>
+              <p>
+                Good programmers can communicate their logic and ideas well. To help yourself in organizing
+                your code and to help future readers of your code understand what is going on, it's important
+                to leave comments, which in C# are lines starting with a <code>//</code> or <code>/* for multiline comments */</code>. 
+                An example of good commented code, where each idea is explained in a comment, can be seen <a href="#operations">below under "Operators"</a>.
+              </p>
+              <p>
+                For bigger programs, it is useful to leave documentation, usually longer explanations of what
+                code does and how it is organized presented as text, flowcharts, and other sorts of outlines.
+              </p>
+            </li>
+            <li>
+              <h5>Debugging: Dealing with errors</h5>
+              <p>
+                Inevitably, there will be errors in your code. There are three types of errors in programming:
+                syntax, runtime, and logic errors. As you become more experienced, the more apt you will be to
+                deal with the errors that arise.
+              </p>
+              <ol>
+                <li>
+                  Syntax Errors<br>
+                  The equivalent of spelling and grammar errors in programming.
+                </li>
+                <li>
+                  Runtime Errors<br>
+                  Errors that occur once the program is already running. Typically set off by a variable or
+                  input that the program is not equipped to handle.
+                </li>
+                <li>
+                  Logic Errors<br>
+                  Your program runs fine, but it does something that you don't want. Perhaps you wanted two
+                  numbers to multiply together but you told the program to add them.
+                </li>
+              </ol>
+            </li>
+          </ul>
+        </div>
+      </header>
+    </a>
+
+    <a class="jumptarget" id="io">
+      <article class="row">
+        <div class="col-xl-12">
+          <h2>Input / Output</h2>
+          <p>You need to know how to properly get input from the user and use their input to perform certain logical operations, finally returning output to them.</p>
+          <p>Input is typically done with <code>string input = Console.ReadLine();</code></p>
+          <p>
+            In C#, output is typically done with <code>Console.WriteLine($"Output");</code><br/>
+            When outputting variables, we use String Interpolation which is done with a <code>$</code> before the quotation marks. Example:
+          </p>
+          <pre><code>
+  string food = "cheese";
+  Console.WriteLine($"My favorite food is {word}.");
+  
+  Output: My favorite food is cheese.
+          </code></pre>
+          <p>Here's the C# tutorial we did towards the start of class which has a few examples of input and output.</p>
+          <iframe height="500px" width="100%" src="https://repl.it/@buckldav/C-Sharp-Tutorial?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+          <p>NOTE: By default, <code>Console.ReadLine();</code> reads in strings, even if the inputs are numbers.</p>
+        </div>
+      </article>
+    </a>
+
+    <a class="jumptarget" id="operations">
+      <article class="row">
+        <div class="col-xl-12">
+          <h2>Operations</h2>
+          <h4>Primitive Data Types</h4>
+          <p>
+            There are several different types of data that variables can store. Data types that are built in to
+            C# and are standard across most programming languages are called primitive data types or literals. In C#,
+            these include, but are not limited to:
+          </p>
+          <pre><code>
+  int number = 0; // 32-bit integer 
+  float decimal = 0.0f; // 32-bit decimal
+  double decimal = 0.0; // 64-bit decimal
+  char character = 'a'; // 16-bit unicode character
+  string = "words and letters"; // char[]
+  bool = true || false; // 1-bit 0 or 1
+          </code></pre>
+          <p>For a complete reference of data types, visit <a target="_blank" rel="noopener noreferrer" href="https://docs.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/types-and-variables">Microsoft's documentation</a>.</p>
+          <h4>Operators</h4>
+          <p>
+            Operators are symbols that carry out arithmetic or logical computation. Here are some examples of operations (logical and arithmetic):
+          </p>
+          <iframe height="500px" width="100%" src="https://repl.it/@buckldav/Operations?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+        </div>
+      </article>
+    </a>
+
+    <a class="jumptarget" id="control">
+      <article class="row">
+        <div class="col-xl-12">
+          <h2>Control Structures</h2>
+          <section class="jumptarget" id="conditionals">
+            <h4>Conditionals</h4>
+            <p>
+              With <code>if</code>, <code>else if</code>, and <code>else</code>, you can make decisions in your code.
+            </p>
+            <p>
+              The decision process is easily visualized with a flowchart. Here's an example of a flowchart with accompanying code.
+            </p>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/LampFlowchart.svg/220px-LampFlowchart.svg.png" alt="If flowchart" style="max-width: 400px">
+            <pre><code>
+  bool lampedPluggedIn = true;
+  bool bulbBurnedOut = true;
+  if (lampedPluggedIn) {
+    if (bulbBurnedOut) {
+      replaceBulb();
+      // The above code is executed be of the boolean expressions above.
+    } else {
+      repairLamp();
+    }
+  } else {
+    plugInLamp();
+  }             
+            </code></pre>
+          </section>
+          <section class="jumptarget" id="functions">
+            <h4>Functions / Methods</h4>
+            <p>
+              A <strong>function</strong> is a section of a program that performs a specific task. If a function is declared within a class,
+              it is called a <strong>method</strong>. There are a few vocabulary words associated with functions:
+            </p>
+            <ul>
+              <li>
+                <h5>Defining a function</h5>
+                This is when you create the function.
+                <pre><code>
+  void MyFunction() {
+    Console.WriteLine("This function doesn't reutrn anything. It just prints this.");
+  }
+                </code></pre>
+              </li>
+              <li>
+                <h5>Scope</h5>
+                This is what is within a function and outside a functions. We will talk about two levels of scope
+                this semester, "local" and "global".<br>
+                <strong>Local</strong> is code only accessible inside the control structure (e.g. if/else) or function.<br>
+                <strong>Global</strong> is code accessible inside and outside the control structure or function.<br>
+                <hr>
+                <h5>Example 1: Local variables with functions</h5>
+                <pre><code>
+  void MyFunction() {
+    int number = 5;
+  }
+  // Doesn't work because "number" is local to MyFunction and not accessible outside of it.
+  Console.WriteLine(number); 
+                </code></pre>
+                <h5>Example 2: Local variables with control structures</h5>
+                <pre><code>
+  bool local = true;
+  if (local) {
+    string name = "George"
+  }
+  // Doesn't work because "name" is local within the {} of the if statement and not accessible outside of it.
+  Console.WriteLine(name); 
+                </code></pre> 
+                <hr>
+              </li>
+              <li>
+                <h5>Calling a function</h5>
+                This is when you use a function. Here is are some examples of calling functions with parameters and
+                return values.
+                <pre><code>
+  void MyFunction() {
+    Console.WriteLine("George");
+  }
+
+  // Calling the function, will now print "George"
+  MyFunction();
+                </code></pre>
+              </li>
+            </ul>
+          </section>
+          <section class="jumptarget" id="loops">
+            <h4>Loops</h4>
+            <p>
+              Loops are ways to repeat code a certain number of times. There are several kinds of loops. The ones
+              that you need to know are<code>for</code>loops and<code>while</code>loops
+              (both pretest and posttest).
+            </p>
+            <h5>For Loops</h5>
+            <p>
+              For loops are great for two cases:
+            </p>
+            <ol>
+              <li>
+                When you need a loop to run a certain number of times.
+                <pre><code>
+  // Prints 0 through 9
+  for (int i = 0; i &lt; 10; i++) {
+    Console.WriteLine(i);
+  }
+                </code></pre>
+              </li>
+              <li>
+                When you are parsing through a collection of items like an array or list.
+                <iframe height="500px" width="100%" src="https://repl.it/@buckldav/List?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+              </li>
+            </ol>
+            <h5>While Loops</h5>
+            <p>
+              While loops behave similarly to conditionals (if statements) that they only execute when the condition
+              is true.
+            </p>
+            <pre><code>
+  bool doTheLoop = false;
+  while (doTheLoop) {
+    // This part of the code is never reached
+  }       
+            </code></pre>
+            <p>
+              When the condition is true, if statements only execute once. Loops, on the other hand, execute UNTIL the
+              condition is false again.
+            </p>
+            <pre><code>
+  bool doTheLoop = true;
+  while (doTheLoop) {
+    // Do some stuff
+
+    // Reach some condition
+    doTheLoop = false;
+  } 
+            </code></pre>
+            <h5>When to use while loops</h5>
+            <p>
+              Whenever a for loop won't work for you. Cases can include:
+            </p>
+            <ol>
+              <li>
+                When you don't know how many times the loop will run. Rather, you want code to execute until a
+                certain condition is false.
+                <pre><code>
+  bool doTheLoop = true;
+  while (doTheLoop) {
+    // Do some stuff
+
+    // Reach some condition
+    doTheLoop = false;
+  } 
+                </code></pre>
+              </li>
+              <li>
+                When a loop just runs forever (until the program terminates). This is typical in game programming.
+                <pre><code>
+  while (true) {
+    // Check for inputs, update timer, etc.
+
+    // This exits the while loop
+    if (input == "quit") {
+      break; 
+    }
+  }
+                </code></pre>
+              </li>
+            </ol>
+          </section>
+        </div>
+      </article>
+    </a>
+
+    <a class="jumptarget" id="strings">
+      <article class="row">
+        <div class="col-xl-12">
+          <h2>Strings</h2>
+          <p>Strings are nothing more than an array of characters, including letters and numbers. You need to know how to manipulate them and understand some of the methods associated with them.</p>
+          <p>Methods to know:</p>
+          <ul>
+            <li>Declaring strings</li>
+            <li>String length</li>
+            <li>String concantenation</li>
+            <li>Substrings</li>
+            <li>String insertion</li>
+            <li>Escape sequences</li>
+            <li>To lowercase, uppercase</li>
+          </ul>
+          <iframe height="500px" width="100%" src="https://repl.it/@buckldav/Strings?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+          <p>NOTE: Remember that even though we can concantenate strings in output, it's better to simply use string interpolation.</p>
+        </div>
+      </article>
+    </a>
+
+    <a class="jumptarget" id="obj-arr-list">
+      <article class="row">
+        <div class="col-xl-12">
+          <h2>Objects, Arrays, and Lists</h2>
+          <h4>Objects</h4>
+          <p>Objects are containers that can hold several data members and functions. They are a way to represent physical objects in computer code.</p>
+          <p>All objects have:</p>
+          <ul>
+            <li>Private data members (variables)</li>
+            <li>A constructor (a way to make an instance of an object)</li>
+            <li>Public getters and setters</li>
+            <li>Public methods (functions)</li>
+          </ul>
+          <p>Here's an example of a Ball represented as an object:</p>
+          <pre><code>
+  class Ball {
+    // data members
+    private int radius
+    private float xVelocity
+    private float yVelocity
+
+    // constructor
+    public Ball() {
+      this.radius = 2
+      xVelocity = 2
+      yVelocity = 0
+    }
+
+    // getters and setters
+    public int GetRadius()
+    public float GetXVelocity()
+    public float GetYVelocity()
+    public void SetRadius(int radius)
+    public void SetXVelocity(int radius)
+    public void SetYVelocity(int radius)
+
+    // methods
+    public void Throw()
+    public void Collide()
+    public void Bounce()
+  }
+          </code></pre>
+          <h4>Arrays and Lists</h4>
+          <p>Arrays and Lists are both collections that can hold several objects.</p>
+          <p>The key thing to know for now about arrays and lists are:</p>
+          <ul>
+            <li>Arrays are static (fixed size). If you make an array of 5 numbers, you cannot add an additional number on the end.</li>
+            <li>Lists are dynamic (variable size). If you have a list of 10 names, you can add another name making the list have 11 names. Likewise, you may remove items from a list and it will resize accordingly.</li>
+            <li>Arrays and lists both start counting their indicies at 0. Example below:</li>
+          </ul>
+          <pre><code>
+  names = {"Boggis", "Bunce", "Bean"}
+  names[0] = "Boggis"
+  names[1] = "Bunce"
+  names[2] = "Bean"
+  names.Length = 3            
+          </code></pre>
+        </div>
+      </article>
+    </a>
+
+    <a class="jumptarget" id="seq-files">
+      <article class="row">
+        <div class="col-xl-12">
+          <h2>Sequential Files</h2>
+          <p>You need to understand how to read and write to text files using C#. We read and write files to have persistent data.</p>
+          <p>For the examples below, click on the "files" icon in the top left to see the text files written to/read from.</p>
+          <h4>Read File</h4>
+          <iframe height="500px" width="100%" src="https://repl.it/@buckldav/Read-file?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+          <h4>Write to File</h4>
+          <iframe height="500px" width="100%" src="https://repl.it/@buckldav/Write-to-file?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+        </div>
+      </article>
+    </a>
+  </main><!-- /.container -->
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script>window.jQuery || document.write('<script src="/docs/4.3/assets/js/vendor/jquery-slim.min.js"><\/script>')</script><script src="https://getbootstrap.com/docs/4.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
+</body>
+</html>
