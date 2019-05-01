@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="author" content="David Buckley">
+  <link rel="shortcut icon" href="../favicon.ico">
+  <title>Programming 1 Study Guide</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <a class="home-link" href="https://meritacademy.tech/">meritacademy.tech</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#top">Top</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#getting-started">Getting Started</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#style">Style</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#types">Types and Operators</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#conditionals">Conditionals</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#functions">Functions</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#loops">Loops</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <main role="main" class="container site-main">
+
+    <a class="jumptarget" id="top">
+      <header class="row">
+        <div class="col-xl-12">
+          <h1>Programming 1: Everything you need to know</h1>
+          <p>
+            This page contains just about everything you need to know about python and programming to be able to
+            make small programs, pick up a new language, and pass the state compentency exam.
+          </p>
+        </div>
+      </header>
+    </a>
+
+    <a class="jumptarget" id="getting-started">
+      <article class="row">
+        <div class="col-xl-12">
+          <h1>Getting Started</h1>
+          <h3>Intro to Software Engineering</h3>
+          <p>
+            Before we make software, we should know what types of software are out there and the different
+            implications of each. Click <a target="_blank" rel="noopener noreferrer" href="https://docs.google.com/document/d/1iJ2McipnNlWcEpQS9BR7RCkARD59hN294HyV0Fig8mQ">here</a>
+            for a worksheet to help you out.
+          </p>
+          <h3>What is an IDE?</h3>
+          <p>
+            An IDE is an integrated development environment. It's software that allows one to code efficiently,
+            usually including tools like code syntax highlighting, an integrated terminal, and workspaces to help
+            you organize your files. The IDE we are using in this class is Visual Studio Code and we are starting
+            by coding in Python. Once you feel comfortable with all of the information on this page, you can move
+            on to working with a game engine (like Unity) to create your games for the game class and React Native
+            development for the mobile class.
+          </p>
+          <p>
+            If you'd like to get your computer set up for coding in Python in Visual Studio Code, here's a <a
+              target="_blank" rel="noopener noreferrer" href="https://docs.google.com/document/d/1dgpm3pINtzzBLakpyl9Z5vdiX1VSCDwXz8G7MWoGF0I/edit">tutorial</a>.
+          </p>
+          <h3>What are the basic skills I'll need to know to program effectively?</h3>
+          <ul>
+            <li>
+              <h4>Algorithms: How to solve the problem</h4>
+              <p>
+                An algorithm is a step by step solution to a problem. Good programmers can take a large problem
+                and break it down into smaller steps.
+              </p>
+            </li>
+            <li>
+              <h4>Commenting and Documentation</h4>
+              <p>
+                Good programmers can communicate their logic and ideas well. To help yourself in organizing
+                your code and to help future readers of your code understand what is going on, it's important
+                to leave comments, which in python are lines starting with a <code>#</code>. An example of good commented
+                code, where each idea is explained in a
+                comment, can be seen below with a tic-tac-toe game.
+              </p>
+              <iframe height="500px" width="100%" src="https://repl.it/@buckldav/TicTacToe?lite=true" scrolling="no"
+                  frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+              <p>
+                For bigger programs, it is useful to leave documentation, usually longer explanations of what
+                code does and how it is organized presented as text, flowcharts, and other sorts of outlines.
+              </p>
+            </li>
+            <li>
+              <h4>Debugging: Dealing with errors</h4>
+              <p>
+                Inevitably, there will be errors in your code. There are three types of errors in programming:
+                syntax, runtime, and logic errors. As you become more experienced, the more apt you will be to
+                deal with the errors that arise.
+              </p>
+              <ol>
+                <li>
+                  Syntax Errors<br>
+                  The equivalent of spelling and grammar errors in programming.
+                </li>
+                <li>
+                  Runtime Errors<br>
+                  Errors that occur once the program is already running. Typically set off by a variable or
+                  input that the program is not equipped to handle.
+                </li>
+                <li>
+                  Logic Errors<br>
+                  Your program runs fine, but it does something that you don't want. Perhaps you wanted two
+                  numbers to multiply together but you told the program to add them.
+                </li>
+              </ol>
+            </li>
+            <li>
+              <h4>The Terminal</h4>
+              <p>
+                Terminal commands you should know (these work across Windows, Mac, and Linux)<a class="ref"
+                  href="https://blogs.technet.microsoft.com/heyscriptingguy/2015/06/11/table-of-basic-powershell-commands/"></a>
+              </p>
+              <pre><code>
+  cd - "Change Directory" - allows you to change what the active directory is (the folder the terminal is using)
+  > cd &lt;folder-name&gt;  
+  Goes forward to a folder.
+  > cd ../&lt;folder-name&gt;
+  Goes backward to a folder.
+  > cd ~
+  Goes back to root directory.
+  * If you press tab while typing &lt;folder-name&gt; it will auto complete the name
+
+  ls - "List Segments" - lists everything in the current directory
+  > ls
+              </code></pre>
+              <p>
+                Running a python program<a class="ref" href="https://en.wikibooks.org/wiki/Python_Programming/Creating_Python_Programs"></a>
+              </p>
+              <pre><code>
+  In the directory of where your program.py is,
+  > python program.py
+  --- OR ---
+  > py program.py                            
+              </code></pre>
+            </li>
+          </ul>
+        </div>
+      </article>
+    </a>
+
+    <a class="jumptarget" id="style">
+      <article class="row">
+        <div class="col-xl-12">
+          <h1>Style</h1>
+          <p>
+            Like written languages such as English, there are rules and conventions in programming languages to
+            follow. These principles will make your code organized and readable.
+          </p>
+          <h3>Variables and Naming Conventions</h3>
+          <p>
+            When naming variables and constants, the most important thing is to BE CONSISTENT IN YOUR FORMATTING.
+            If you use underscores in your names, use that naming convention throughout your entire program.
+            Constants are variables in that they are like a box that holds data, but the data DOES NOT CHANGE.
+            Constants should always be capitalized to distinguish them from variables.
+          </p>
+          <pre><code> num = 5     # Assigning the value 5 to the variable "num"
+  camelCase   # Variable names cannot have spaces, so camelCase is a way to allow for multiple words in a variable name
+  anotherExampleOfCamelCase
+  under_score # If you don't like camelCase, use underscores but BE CONSISTENT IN YOUR NAMING.
+  CONSTANT    # Always do ALL CAPS for constants.</code></pre>
+          <p>
+            Finally, make sure your variable names are descriptive. If you have a financial application with
+            variables keeping track of dollars and cents, then name the variables<code>dollars</code>and<code>cents</code>
+            respectively.
+          </p>
+        </div>
+      </article>
+    </a>
+
+    <a class="jumptarget" id="types">
+      <article class="row">
+        <div class="col-xl-12">
+          <h1>Types and Operators</h1>
+          <h3>Primitive Data Types</h3>
+          <p>
+            There are several different types of data that variables can store. Data types that are built in to
+            python and are standard across most programming languages are called primitive data types. In python,
+            these include:
+          </p>
+          <pre><code>
+  integer = 0
+  float = 0.0
+  string = "words and letters"
+  boolean = True or False
+          </code></pre>
+          <p>
+            Integers are non-decimal numbers. Floats are decimal numbers. Strings are enclosed in quotes and can
+            contain any number of letters, numbers, and characters. Finally, booleans are used for logical
+            expressions and are either True (1) or False (0).
+          </p>
+          <h3>Operators</h3>
+          <p>
+            Operators are symbols that carry out arithmetic or logical computation.<a href="https://www.programiz.com/python-programming/operators"></a>
+          </p>
+        </div>
+      </article>
+    </a>
+
+    <a class="jumptarget" id="conditionals">
+      <article class="row">
+        <div class="col-xl-12">
+            <h1>Conditionals</h1>
+            <h3>If, Elif, and Else</h3>
+            <p>
+                With if, elif, and else, you can make decisions in your code. An if statement works like the below code
+                demostrates.
+            </p>
+            <pre><code>
+  if condition == True:
+    print("Do this piece of code")
+            </code></pre>
+            <p>
+                The decision process is easily visualized with a flowchart. Here's an example of of flowchart with one
+                if statement. The test expression is a boolean expression (also known as the condition) and either
+                evaluates to <code>True</code> or <code>False</code>.
+            </p>
+            <img src="Python_if_statement.jpg" alt="If flowchart" style="max-width: 400px; display: block; margin: 0 auto;">
+        </div>
+      </article>
+    </a>
+
+    <a class="jumptarget" id="functions">
+      <article class="row">
+        <div class="col-xl-12">
+            <h1>Functions</h1>
+            <p>
+                A function is a section of a program that performs a specific task.<a class="ref" href="https://www.webopedia.com/TERM/F/function.html"></a>
+                There are a few vocabulary words associated with functions:
+            </p>
+            <ul>
+                <li>
+                    <h4>Defining a function</h4>
+                    This is when you create the function. In python, this is done by using the<code>def</code>keyword.<br>
+                    <pre><code class="python">
+  def myFunction(): # This line is defining the function "myFunction"
+                    </code></pre>
+                </li>
+                <li>
+                    <h4>Scope</h4>
+                    This is what is within a function and outside a functions. We will talk about two levels of scope
+                    this semester, "local" and "global".<a href="https://www.programiz.com/python-programming/global-local-nonlocal-variables"
+                        class="ref"></a><br>
+                    <strong>Local</strong> is code only accessible inside the control structure (e.g. if/else) or
+                    function.<br>
+                    <strong>Global</strong> is code accessible inside and outside the control structure or function.<br>
+                    <hr>
+                    <h4>Example 1: Local variables with functions</h4>
+                    <pre><code class="python">
+  def myFunction():
+    print("This code is local to myFunction.")
+    print("This code is too, because it is indented at the same level as the above line.")
+    print("Same with this one.")
+    localVar = "Local"; # Scope of variable = local - only accessible within myFunction
+
+  print("This code is not within myFunction because it is not indented on the same level like the above code.")
+  print(localVar) # This does not work because localVar was declared within myFunction and is not accessible globally
+                    </code></pre>
+                    <h4>Example 2: Local variables with control structures</h4>
+                    <pre><code>
+  def myFunction():
+    condition = True
+    if condition:
+      localVar = 0
+    print(localVar) # Doesn't work, because localVar is only accessible within the if statement above
+                </code></pre>
+              <hr>
+            </li>
+            <li>
+              <h4>Calling a function</h4>
+              This is when you use a function. Here is are some examples of calling functions with parameters and
+              return values.  
+              <iframe height="500px" width="100%" src="https://repl.it/@buckldav/functions-pt-2?lite=true" scrolling="no"
+                frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+            </li>
+          </ul>
+        </div>
+      </article>
+    </a>
+
+    <a class="jumptarget" id="loops">
+      <article class="row">
+        <div class="col-xl-12">
+            <h1>Loops</h1>
+            <p>
+              Loops are ways to repeat code a certain number of times. There are several kinds of loops. The ones
+              that you need to know are <code>for</code> loops and <code>while</code> loops
+              (both pretest and posttest).
+            </p>
+            <h3>For Loops</h3>
+            <p>
+              For loops are great for two cases:
+            </p>
+            <ol>
+              <li>
+                When you need a loop to run a certain number of times.
+                <iframe width="100%" height="500px" src="https://repl.it/@buckldav/for1?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+              </li>
+              <li>
+                When you are parsing through a collection of items like an array or list.
+                <iframe width="100%" height="500px" src="https://repl.it/@buckldav/for2?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+              </li>
+            </ol>
+            <h3>While Loops</h3>
+            <p>While loops behave similarly to conditionals (if statements) that they only execute when the condition is true.</p>
+            <pre><code>
+  condition = False
+  while condition:
+    print("This code will never execute because the condition was false.")
+            </code></pre>
+            <p>When the condition is true, if statements only execute once. Loops, on the other hand, execute UNTIL the condition is false again.</p>
+            <iframe width="100%" height="500px" src="https://repl.it/@buckldav/if-vs-while?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+            <h4>When to use while loops</h4>
+            <p>
+              Whenever a for loop won't work for you. Cases can include:
+            </p>
+            <ol>
+                <li>
+                    When you don't know how many times the loop will run. Rather, you want code to execute until a
+                    certain condition is false.
+                    <pre><code>
+  from random import random
+  shouldContinue = true
+
+  while shouldContinue == true:
+    print("running")
+    random = random() * 10.0
+    if(random > 5) {
+      shouldContinue = True
+    else:
+      shouldContinue = False
+                    </code></pre>
+                </li>
+                <li>
+                    When a loop just runs forever (until the program terminates). This is typical in game programming.
+                    <pre><code class="python">
+  while True:
+    print("Move the character")
+    print("Check for collisions")
+    # etc.
+                    </code></pre>
+                </li>
+            </ol>
+        </div>
+      </article>
+    </a>
+
+  </main><!-- /.container -->
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script>window.jQuery || document.write('<script src="/docs/4.3/assets/js/vendor/jquery-slim.min.js"><\/script>')</script><script src="https://getbootstrap.com/docs/4.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
+</body>
+</html>
