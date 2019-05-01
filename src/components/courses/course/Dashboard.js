@@ -151,7 +151,7 @@ class Dashboard extends React.Component {
 
     render() {
         if (this.props.visible) {
-            if (this.props.course !== {}) {
+            if (this.props.course.events !== undefined) {
                 return (         
                     <Row gutter={24}>
                         <Col span={this.props.sidebarRight ? 16 : 24}>

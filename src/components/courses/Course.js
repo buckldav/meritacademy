@@ -114,37 +114,34 @@ class Course extends React.Component {
                 // Get course info
                 axios.get(SERVER_URL + '/api/courses/' + pathStrCourse)
                     .then(res => {
-                        this.setState({
-                            course: res.data
-                        });
-                        // console.log(this.state.course);
+                        let courseData = res.data;
+
+                        // Get the disclosure
+                        axios.get(SERVER_URL + '/api/courses/disclosures/' + pathStrCourse)
+                            .then(res => {
+                                if (res.data.length === 1) {
+                                    courseData.disclosureURL = res.data[0].driveUrl;
+                                }
+                            })
+
+                        // Get the events
+                        axios.get(SERVER_URL + '/api/events/course/' + pathStrCourse)
+                            .then(res => {
+                                let sortedByDate = res.data.sort((a, b) => {
+                                    a = new Date(a.date);
+                                    b = new Date(b.date);
+                                    return a>b ? -1 : a<b ? 1 : 0;
+                                });
+
+                                courseData.events = sortedByDate;
+
+                                this.setState({
+                                    course: courseData,
+                                    view: MenuItems[menuItemIndex].title,
+                                    selectedKey: (menuItemIndex + 1).toString()
+                                });
+                            });
                     });
-
-                // Get the events
-                axios.get(SERVER_URL + '/api/events/course/' + pathStrCourse)
-                    .then(res => {
-                        let sortedByDate = res.data.sort((a, b) => {
-                            a = new Date(a.date);
-                            b = new Date(b.date);
-                            return a>b ? -1 : a<b ? 1 : 0;
-                        });
-
-                        this.setState(prevState => ({
-                            course: {...prevState.course, events: sortedByDate},
-                            view: MenuItems[menuItemIndex].title,
-                            selectedKey: (menuItemIndex + 1).toString()
-                        }));
-                    });
-
-                // Get the disclosure
-                axios.get(SERVER_URL + '/api/courses/disclosures/' + pathStrCourse)
-                    .then(res => {
-                        if (res.data.length === 1) {
-                            this.setState(prevState => ({
-                                course: {...prevState.course, disclosureURL: res.data[0].driveUrl}
-                            }));
-                        }
-                    })
             });
 
         // Window resize, collapsing menu
