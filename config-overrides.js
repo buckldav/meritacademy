@@ -1,8 +1,8 @@
 const { override, fixBabelImports, addLessLoader } = require('customize-cra');
 
 const red = '#aa1d23';
-const navy = '#102544';
-const silver = '#e9effc';
+const navy = '#190b48';
+const silver = '#E8E6EC';
 
 module.exports = override(
   fixBabelImports('import', {
