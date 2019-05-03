@@ -11,7 +11,7 @@ const Links = props => (
         <List.Item>
             <a href={item.linkUrl}>
             <List.Item.Meta
-                avatar={<Avatar icon="link" size="small" style={{background: "transparent", color: "#1890ff"}} />}
+                avatar={<Avatar icon="link" size="small" style={{background: "transparent", color: "#aa1d23"}} />}
                 title={item.linkText}
                 description={item.description}
             />

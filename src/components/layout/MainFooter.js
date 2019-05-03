@@ -9,12 +9,12 @@ const data = [
         title: "Links",
         links: [
             {
-                ref: "http://meritacademy.org/",
-                val: "meritacademy.org"
+                ref: "https://www.meridianschool.org",
+                val: "meridianschool.org"
             },
             {
-                ref: "http://meridianschool.org",
-                val: "meridianschool.org"
+                ref: "https://www.meritprepacademy.org/",
+                val: "meritprepacademy.org"
             }
         ]
     },
@@ -22,12 +22,12 @@ const data = [
         title: "Contact",
         links: [
             {
-                ref: "mailto:david.buckley@meritacademy.org",
-                val: "Email"
+                ref: "tel:801-491-7600,227",
+                val: "801-491-7600 ext 227"
             },
             {
-                ref: "tel:801-491-7600,227",
-                val: "Phone"
+                ref: "mailto:david.buckley@meritacademy.org",
+                val: "david.buckley@meritacademy.org"
             }
         ]
     },
@@ -51,7 +51,7 @@ const MainFooter = (props) => {
         <Footer>
             <List
                 grid={{
-                    gutter: 0, xs: 1, sm: 3, md: 4, lg: 4, xl: 6, xxl: 6,
+                    gutter: 0, xs: 1, sm: 2, md: 3, lg: 3, xl: 3, xxl: 3,
                 }}
                 dataSource={data}
                 renderItem={item => (
@@ -71,7 +71,7 @@ const MainFooter = (props) => {
                                 dataSource={item.links}
                                 renderItem={link => (
                                     <List.Item style={{margin: 0}}>
-                                        <a href={link.ref}>{link.val}</a>
+                                        <a href={link.ref} style={{display: "block", textAlign: "center"}}>{link.val}</a>
                                     </List.Item>
                                 )}
                             />

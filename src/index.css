@@ -12,7 +12,7 @@ body {
 .button-no-style,
 .button-no-style:hover,
 .button-no-style:focus {
-    color: #1890ff;
+    color: #aa1d23;
     border: 0;
     outline: 0;
     padding: 0; 
@@ -92,9 +92,29 @@ body {
   transition: transform 0.2s ease 0s;
 }
 
-.card-list {
-  padding: 48px 24px;
+.card-list,
+.ant-layout-footer {
+  padding: 48px 24px !important;
   max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.ant-layout-footer .ant-card-body {
+  padding: 8px;
+}
+
+/* 
+  Not ideal way to change the selected color, still trying to find the .less variable in...
+  https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less
+ */
+.ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected,
+.ant-menu:not(.ant-menu-horizontal) .ant-menu-item:active,
+.ant-dropdown-menu-item-active,
+.ant-fullcalendar-selected-day>*,
+.ant-fullcalendar-month-panel-selected-cell>*,
+.ant-fullcalendar-date:hover,
+.ant-fullcalendar-month:hover,
+.ant-select-dropdown-menu-item-active {
+  background-color: #e9effc !important;
 }
