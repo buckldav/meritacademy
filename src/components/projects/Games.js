@@ -11,6 +11,13 @@ const GameInfo = [
         url: "https://repl.it/@dylanperaza961/Back-In-Time?lite=true&outputonly=1"
     },
     {
+        title: "Biology Game",
+        author: "Ben T",
+        engine: "Unity",
+        instructions: "Walk around and explore. WASD to move.",
+        url: "/static/projects/games/biology-game/index.html"
+    },
+    {
         title: "Cat Platform",
         author: "Luke E",
         engine: "Scratch",
