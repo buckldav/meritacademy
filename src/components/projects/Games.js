@@ -11,13 +11,6 @@ const GameInfo = [
         url: "https://repl.it/@dylanperaza961/Back-In-Time?lite=true&outputonly=1"
     },
     {
-        title: "Biology Game",
-        author: "Ben T",
-        engine: "Unity",
-        instructions: "Walk around and explore. WASD to move.",
-        url: "/static/projects/games/biology-game/index.html"
-    },
-    {
         title: "Cat Platform",
         author: "Luke E",
         engine: "Scratch",
@@ -30,6 +23,13 @@ const GameInfo = [
         engine: "Unity",
         instructions: "WASD or Arrow Keys to move.",
         url: "/static/projects/games/dont-die/index.html"
+    },
+    {
+        title: "Dragon's Quest",
+        author: "Talon M",
+        engine: "repl.it",
+        instructions: "Choose your own adventure game. Type in your choices exactly.",
+        url: "https://repl.it/@TMaurin/School-Project?lite=true&outputonly=1"
     },
     {
         title: "Maze",
