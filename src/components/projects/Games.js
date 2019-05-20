@@ -12,9 +12,9 @@ const GameInfo = [
     },
     {
         title: "Billiam Galileo",
-        author: "Matthew H, Aiden P",
+        author: "Matthew H, Aiden P, Eric D, and Jaden E",
         engine: "Unity",
-        instructions: "WASD or Arrow Keys to move, Space to jump.",
+        instructions: "Go on an incredible Martian adventure with botanist/space ranger Billiam Galileo. WASD or Arrow Keys to move, Space to jump.",
         url: "/static/projects/games/billiam/index.html"
     },
     {
