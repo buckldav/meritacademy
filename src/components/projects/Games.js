@@ -11,6 +11,13 @@ const GameInfo = [
         url: "https://repl.it/@dylanperaza961/Back-In-Time?lite=true&outputonly=1"
     },
     {
+        title: "Billiam Galileo",
+        author: "Matthew H, Aiden P",
+        engine: "Unity",
+        instructions: "WASD or Arrow Keys to move, Space to jump.",
+        url: "/static/projects/games/billiam/index.html"
+    },
+    {
         title: "Cat Platform",
         author: "Luke E",
         engine: "Scratch",
@@ -39,6 +46,13 @@ const GameInfo = [
         url: "/static/projects/games/maze/index.html"
     },
     {
+        title: "Pygame Demo",
+        author: "Katniss W",
+        engine: "Pygame",
+        instructions: "Learning to animate sprites in Pygame. Arrow keys to move, space to jump.",
+        url: "https://repl.it/@KatnissWu/my-game?lite=true&outputonly=1"
+    },
+    {
         title: "Snake",
         author: "Alex B",
         engine: "Scratch",
@@ -51,7 +65,8 @@ const EngineUrls = {
     "Scratch": "https://scratch.mit.edu/",
     "Godot": "https://godotengine.org/",
     "Unity": "https://unity3d.com/",
-    "C#": "https://repl.it/"
+    "repl.it": "https://repl.it/",
+    "Pygame": "https://repl.it/talk/learn/A-Starter-Guide-to-Pygame/11741"
 }
 
 
