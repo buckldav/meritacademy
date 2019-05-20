@@ -39,6 +39,13 @@ const GameInfo = [
         url: "https://repl.it/@TMaurin/School-Project?lite=true&outputonly=1"
     },
     {
+        title: "Flying Soldier",
+        author: "Zion A, Luke E",
+        engine: "Unity",
+        instructions: "Space to fly, arrow keys to move. Look for the end.",
+        url: "/static/projects/games/flying-soldier/index.html"
+    },
+    {
         title: "Maze",
         author: "Connor L",
         engine: "Godot",
