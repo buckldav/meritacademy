@@ -8,9 +8,14 @@
 /*# sourceMappingURL=bootstrap.min.css.map */
 
 /* My code */
-code {
+code, kbd {
   color: #0A3 !important;
   font-weight: 600;
+  background: #f4f4f4;
+}
+pre {
+  background: #f4f4f4;
+  margin: 0.5rem 0;
 }
 
 img {

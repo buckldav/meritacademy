@@ -93,7 +93,7 @@
               <p>
                 Good programmers can communicate their logic and ideas well. To help yourself in organizing
                 your code and to help future readers of your code understand what is going on, it's important
-                to leave comments, which in python are lines starting with a <code>#</code>. An example of good commented
+                to leave comments, which in python are lines starting with a <kbd>#</kbd>. An example of good commented
                 code, where each idea is explained in a
                 comment, can be seen below with a tic-tac-toe game.
               </p>
@@ -177,14 +177,16 @@
             Constants are variables in that they are like a box that holds data, but the data DOES NOT CHANGE.
             Constants should always be capitalized to distinguish them from variables.
           </p>
-          <pre><code> num = 5     # Assigning the value 5 to the variable "num"
+          <pre><code> 
+  num = 5     # Assigning the value 5 to the variable "num"
   camelCase   # Variable names cannot have spaces, so camelCase is a way to allow for multiple words in a variable name
   anotherExampleOfCamelCase
   under_score # If you don't like camelCase, use underscores but BE CONSISTENT IN YOUR NAMING.
-  CONSTANT    # Always do ALL CAPS for constants.</code></pre>
+  CONSTANT    # Always do ALL CAPS for constants.
+          </code></pre>
           <p>
             Finally, make sure your variable names are descriptive. If you have a financial application with
-            variables keeping track of dollars and cents, then name the variables<code>dollars</code>and<code>cents</code>
+            variables keeping track of dollars and cents, then name the variables <kbd>dollars</kbd> and <kbd>cents</kbd>
             respectively.
           </p>
         </div>
@@ -236,7 +238,7 @@
             <p>
                 The decision process is easily visualized with a flowchart. Here's an example of of flowchart with one
                 if statement. The test expression is a boolean expression (also known as the condition) and either
-                evaluates to <code>True</code> or <code>False</code>.
+                evaluates to <kbd>True</kbd> or <kbd>False</kbd>.
             </p>
             <img src="Python_if_statement.jpg" alt="If flowchart" style="max-width: 400px; display: block; margin: 0 auto;">
         </div>
@@ -254,7 +256,7 @@
             <ul>
                 <li>
                     <h4>Defining a function</h4>
-                    This is when you create the function. In python, this is done by using the<code>def</code>keyword.<br>
+                    This is when you create the function. In python, this is done by using the <kbd>def</kbd> keyword.<br>
                     <pre><code class="python">
   def myFunction(): # This line is defining the function "myFunction"
                     </code></pre>
@@ -342,13 +344,13 @@
                     When you don't know how many times the loop will run. Rather, you want code to execute until a
                     certain condition is false.
                     <pre><code>
-  from random import random
-  shouldContinue = true
+  from random import randint
+  shouldContinue = True
 
-  while shouldContinue == true:
+  while shouldContinue == True:
     print("running")
-    random = random() * 10.0
-    if(random > 5) {
+    rand = randint(1, 10)
+    if rand > 5:
       shouldContinue = True
     else:
       shouldContinue = False
