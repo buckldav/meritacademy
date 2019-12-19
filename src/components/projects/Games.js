@@ -46,6 +46,13 @@ const GameInfo = [
         url: "/static/projects/games/flying-soldier/index.html"
     },
     {
+        title: "Marvelio",
+        author: "Austin M",
+        engine: "Scratch",
+        instructions: "Arrow keys to move, get Nick Fury to the end and beat Thanos!",
+        url: "https://scratch.mit.edu/projects/embed/355397939"
+    },
+    {
         title: "Maze",
         author: "Connor L",
         engine: "Godot",
