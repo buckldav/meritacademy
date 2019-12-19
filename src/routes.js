@@ -9,6 +9,7 @@ import CourseLinks from "./components/courses/course/CourseLinks";
 import Projects from "./components/projects/Projects";
 import Games from './components/projects/Games';
 import Sites from './components/projects/Sites';
+import Apps from './components/projects/Apps';
 
 const BaseRouter = () => {
   return (
@@ -32,6 +33,7 @@ const BaseRouter = () => {
             <Switch>
               <Route exact path={`${url}/games`} component={Games} />
               <Route path={`${url}/sites`} component={Sites} />
+              <Route path={`${url}/apps`} component={Apps} />
               <Redirect to={`${url}/games`} />
             </Switch>
           </Projects>

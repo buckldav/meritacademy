@@ -22,6 +22,12 @@ const MenuItems = [
         path: "/projects/sites",
         component: Sites
     },
+    {
+        title: "Apps",
+        icon: "mobile",
+        path: "/projects/apps",
+        component: Sites
+    },
 ]
 
 class Projects extends React.Component {
