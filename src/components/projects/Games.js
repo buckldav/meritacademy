@@ -53,6 +53,13 @@ const GameInfo = [
         url: "https://scratch.mit.edu/projects/embed/355397939"
     },
     {
+        title: "Marioish",
+        author: "Wyatt H",
+        engine: "Godot",
+        instructions: "Click on the game to activate it. Press arrow keys to move.",
+        url: "/static/projects/games/marioish/Wyatt.html"
+    }
+    {
         title: "Maze",
         author: "Connor L",
         engine: "Godot",
