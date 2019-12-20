@@ -58,7 +58,7 @@ const GameInfo = [
         engine: "Godot",
         instructions: "Click on the game to activate it. Press arrow keys to move.",
         url: "/static/projects/games/marioish/Wyatt.html"
-    }
+    },
     {
         title: "Maze",
         author: "Connor L",
