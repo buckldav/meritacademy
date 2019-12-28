@@ -4,6 +4,20 @@ import { Menu, Dropdown, Icon } from 'antd';
 
 const GameInfo = [
     {
+        title: "A Guard's Life",
+        author: "Orly M",
+        engine: "repl.it",
+        instructions: "A medieval text adventure. Press Enter to begin.",
+        url: "https://medieval-text-game.skylawolfy.repl.run/"
+    },
+    {
+        title: "Aneurysm",
+        author: "Tennyson H",
+        engine: "Godot",
+        instructions: "Click on the game to activate it. Press arrow keys to move.",
+        url: "/static/projects/games/aneurysm/Tennyson.html"
+    },
+    {
         title: "Back in Time",
         author: "Dylan P",
         engine: "repl.it",
@@ -46,6 +60,20 @@ const GameInfo = [
         url: "/static/projects/games/flying-soldier/index.html"
     },
     {
+        title: "Fun Game",
+        author: "Talan J",
+        engine: "Godot",
+        instructions: "Click on the game to activate it. Press arrow keys to move.",
+        url: "/static/projects/games/fun-game/Talan.html"
+    },
+    {
+        title: "IDK 2.0",
+        author: "Sebastian P",
+        engine: "Godot",
+        instructions: "Click on the game to activate it. Press arrow keys to move.",
+        url: "/static/projects/games/idk-2/2D Movement Demo.html"
+    },
+    {
         title: "Marvelio",
         author: "Austin M",
         engine: "Scratch",
@@ -79,6 +107,27 @@ const GameInfo = [
         engine: "Scratch",
         instructions: "Click on the game to activate it. WASD to move. Collect the stars to increase your size.",
         url: "https://scratch.mit.edu/projects/embed/23464954"
+    },
+    {
+        title: "Sonic Dash",
+        author: "Manases R",
+        engine: "Godot",
+        instructions: "Click on the game to activate it. Press arrow keys to move.",
+        url: "/static/projects/games/sonic-dash/2D Movement Demo.html"
+    },
+    {
+        title: "Sypher",
+        author: "Owen H",
+        engine: "Godot",
+        instructions: "Click on the game to activate it. Press arrow keys to move.",
+        url: "/static/projects/games/sypher/Owen.html"
+    },
+    {
+        title: "Weird Platfarmer",
+        author: "Isaac S",
+        engine: "Godot",
+        instructions: "Click on the game to activate it. Press arrow keys to move.",
+        url: "/static/projects/games/weird-platfarmer/Isaac.html"
     }
 ]
 
