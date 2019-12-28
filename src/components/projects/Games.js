@@ -15,7 +15,7 @@ const GameInfo = [
         author: "Tennyson H",
         engine: "Godot",
         instructions: "Click on the game to activate it. Press arrow keys to move.",
-        url: "/static/projects/games/aneurysm/Tennyson.html"
+        url: "https://meritacademy.s3-us-west-1.amazonaws.com/games/aneursym/Tennyson.html"
     },
     {
         title: "Back in Time",
@@ -64,14 +64,14 @@ const GameInfo = [
         author: "Talan J",
         engine: "Godot",
         instructions: "Click on the game to activate it. Press arrow keys to move.",
-        url: "/static/projects/games/fun-game/Talan.html"
+        url: "https://meritacademy.s3-us-west-1.amazonaws.com/games/fun-game/Talan.html"
     },
     {
         title: "IDK 2.0",
         author: "Sebastian P",
         engine: "Godot",
         instructions: "Click on the game to activate it. Press arrow keys to move.",
-        url: "/static/projects/games/idk-2/2D Movement Demo.html"
+        url: "https://meritacademy.s3-us-west-1.amazonaws.com/games/idk-2/2D+Movement+Demo.html"
     },
     {
         title: "Marvelio",
@@ -85,14 +85,14 @@ const GameInfo = [
         author: "Wyatt H",
         engine: "Godot",
         instructions: "Click on the game to activate it. Press arrow keys to move.",
-        url: "/static/projects/games/marioish/Wyatt.html"
+        url: "https://meritacademy.s3-us-west-1.amazonaws.com/games/marioish/Wyatt.html"
     },
     {
         title: "Maze",
         author: "Connor L",
         engine: "Godot",
         instructions: "Click on the game to activate it. Find the star! Press arrow keys to move.",
-        url: "/static/projects/games/maze/index.html"
+        url: "https://meritacademy.s3-us-west-1.amazonaws.com/games/maze/index.html"
     },
     {
         title: "Pygame Demo",
@@ -113,21 +113,21 @@ const GameInfo = [
         author: "Manases R",
         engine: "Godot",
         instructions: "Click on the game to activate it. Press arrow keys to move.",
-        url: "/static/projects/games/sonic-dash/2D Movement Demo.html"
+        url: "https://meritacademy.s3-us-west-1.amazonaws.com/games/sonic-dash/2D+Movement+Demo.html"
     },
     {
         title: "Sypher",
         author: "Owen H",
         engine: "Godot",
         instructions: "Click on the game to activate it. Press arrow keys to move.",
-        url: "/static/projects/games/sypher/Owen.html"
+        url: "https://meritacademy.s3-us-west-1.amazonaws.com/games/sypher/Owen.html"
     },
     {
         title: "Weird Platfarmer",
         author: "Isaac S",
         engine: "Godot",
         instructions: "Click on the game to activate it. Press arrow keys to move.",
-        url: "/static/projects/games/weird-platfarmer/Isaac.html"
+        url: "https://meritacademy.s3-us-west-1.amazonaws.com/games/weird-platfarmer/Isaac.html"
     }
 ]
 
