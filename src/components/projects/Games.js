@@ -29,7 +29,7 @@ const GameInfo = [
         author: "Matthew H, Aiden P, Eric D, and Jaden E",
         engine: "Unity",
         instructions: "Go on an incredible Martian adventure with botanist/space ranger Billiam Galileo. WASD or Arrow Keys to move, Space to jump.",
-        url: "/static/projects/games/billiam/index.html"
+        url: "https://meritacademy.s3-us-west-1.amazonaws.com/games/billiam/index.html"
     },
     {
         title: "Cat Platform",
@@ -39,11 +39,18 @@ const GameInfo = [
         url: "https://scratch.mit.edu/projects/embed/260481630"
     },
     {
+        title: "Defy the Odds",
+        author: "Tennyson H",
+        engine: "repl.it",
+        instructions: "Good luck",
+        url: "https://chooz-ur-own-advenchure-gaym.tennysonhirst.repl.run/"
+    },
+    {
         title: "Don't Die!",
         author: "Dallin C",
         engine: "Unity",
         instructions: "WASD or Arrow Keys to move.",
-        url: "/static/projects/games/dont-die/index.html"
+        url: "https://meritacademy.s3-us-west-1.amazonaws.com/games/dont-die/index.html"
     },
     {
         title: "Dragon's Quest",
@@ -57,7 +64,7 @@ const GameInfo = [
         author: "Zion A, Luke E",
         engine: "Unity",
         instructions: "Space to fly, arrow keys to move. Look for the end.",
-        url: "/static/projects/games/flying-soldier/index.html"
+        url: "https://meritacademy.s3-us-west-1.amazonaws.com/games/flying-soldier/index.html"
     },
     {
         title: "Fun Game",
@@ -72,6 +79,13 @@ const GameInfo = [
         engine: "Godot",
         instructions: "Click on the game to activate it. Press arrow keys to move.",
         url: "https://meritacademy.s3-us-west-1.amazonaws.com/games/idk-2/2D+Movement+Demo.html"
+    },
+    {
+        title: "Kingdom",
+        author: "Ammon A",
+        engine: "repl.it",
+        instructions: "The fate of the kingdom is in your hands!",
+        url: "https://kingdom.ammonasay.repl.run/"
     },
     {
         title: "Marvelio",
