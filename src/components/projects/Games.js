@@ -2,7 +2,7 @@ import React from 'react';
 import Iframe from 'react-iframe';
 import { Menu, Dropdown, Icon } from 'antd';
 
-const GameInfo = [
+const TextGamesInfo = [
     {
         title: "A Guard's Life",
         author: "Orly M",
@@ -11,18 +11,42 @@ const GameInfo = [
         url: "https://medieval-text-game.skylawolfy.repl.run/"
     },
     {
-        title: "Aneurysm",
-        author: "Tennyson H",
-        engine: "Godot",
-        instructions: "Click on the game to activate it. Press arrow keys to move.",
-        url: "https://meritacademy-games.s3-us-west-1.amazonaws.com/aneurysm/Tennyson.html"
-    },
-    {
         title: "Back in Time",
         author: "Dylan P",
         engine: "repl.it",
         instructions: "Choose your own adventure game. Type in your choices exactly.",
         url: "https://repl.it/@dylanperaza961/Back-In-Time?lite=true&outputonly=1"
+    },
+    {
+        title: "Defy the Odds",
+        author: "Tennyson H",
+        engine: "repl.it",
+        instructions: "Good luck",
+        url: "https://chooz-ur-own-advenchure-gaym.tennysonhirst.repl.run/"
+    },
+    {
+        title: "Dragon's Quest",
+        author: "Talon M",
+        engine: "repl.it",
+        instructions: "Choose your own adventure game. Type in your choices exactly.",
+        url: "https://repl.it/@TMaurin/School-Project?lite=true&outputonly=1"
+    },
+    {
+        title: "Kingdom",
+        author: "Ammon A",
+        engine: "repl.it",
+        instructions: "The fate of the kingdom is in your hands!",
+        url: "https://kingdom.ammonasay.repl.run/"
+    },
+]
+
+const GameInfo = [  
+    {
+        title: "Aneurysm",
+        author: "Tennyson H",
+        engine: "Godot",
+        instructions: "Click on the game to activate it. Press arrow keys to move.",
+        url: "https://meritacademy-games.s3-us-west-1.amazonaws.com/aneurysm/Tennyson.html"
     },
     {
         title: "Billiam Galileo",
@@ -39,25 +63,11 @@ const GameInfo = [
         url: "https://scratch.mit.edu/projects/embed/260481630"
     },
     {
-        title: "Defy the Odds",
-        author: "Tennyson H",
-        engine: "repl.it",
-        instructions: "Good luck",
-        url: "https://chooz-ur-own-advenchure-gaym.tennysonhirst.repl.run/"
-    },
-    {
         title: "Don't Die!",
         author: "Dallin C",
         engine: "Unity",
         instructions: "WASD or Arrow Keys to move.",
         url: "https://meritacademy-games.s3-us-west-1.amazonaws.com/dont-die/index.html"
-    },
-    {
-        title: "Dragon's Quest",
-        author: "Talon M",
-        engine: "repl.it",
-        instructions: "Choose your own adventure game. Type in your choices exactly.",
-        url: "https://repl.it/@TMaurin/School-Project?lite=true&outputonly=1"
     },
     {
         title: "Flying Soldier",
@@ -79,13 +89,6 @@ const GameInfo = [
         engine: "Godot",
         instructions: "Click on the game to activate it. Press arrow keys to move.",
         url: "https://meritacademy-games.s3-us-west-1.amazonaws.com/idk-2/2D+Movement+Demo.html"
-    },
-    {
-        title: "Kingdom",
-        author: "Ammon A",
-        engine: "repl.it",
-        instructions: "The fate of the kingdom is in your hands!",
-        url: "https://kingdom.ammonasay.repl.run/"
     },
     {
         title: "Marvelio",
@@ -160,17 +163,26 @@ class Games extends React.Component {
         selected: GameInfo[0]
     }
 
-    handleClick = (e) => {
-        this.setState({selected: GameInfo[parseInt(e.key)]});
+    handleClick = (e, gameArray) => {
+        this.setState({selected: gameArray[parseInt(e.key)]});
     }
-    
-    onGameSelected = (item) => {
-        this.setState({selected: GameInfo[parseInt(item.key)]});
-    }
+
+    textmenu = (
+        <Menu 
+            onClick={(e) => (this.handleClick(e, TextGamesInfo))}
+            selectedKeys={[]}
+        >
+            {
+                TextGamesInfo.map((val, i) => (
+                    <Menu.Item key={"" + i}>{val.title}</Menu.Item>
+                ))
+            }
+        </Menu>
+    );
 
     menu = (
         <Menu 
-            onClick={this.handleClick}
+            onClick={(e) => (this.handleClick(e, GameInfo))}
             selectedKeys={[]}
         >
             {
@@ -192,9 +204,14 @@ class Games extends React.Component {
         return (
             <div>
                 <h1>Games</h1>
-                <Dropdown overlay={this.menu} style={{marginBottom: 24}}>
-                    <button className="ant-dropdown-link button-no-style">
-                        Select Game <Icon type="down" />
+                <Dropdown overlay={this.menu}>
+                    <button className="ant-dropdown-link button-no-style" style={{marginBottom: 24, marginRight: 16}}>
+                        Select 2D Game <Icon type="down" />
+                    </button>
+                </Dropdown>
+                <Dropdown overlay={this.textmenu}>
+                    <button className="ant-dropdown-link button-no-style" style={{marginBottom: 24}}>
+                        Select Text Game <Icon type="down" />
                     </button>
                 </Dropdown>
 

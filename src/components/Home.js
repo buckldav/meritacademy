@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import React, { Component } from "react";
-import { Layout, List, Card } from "antd";
+import { Layout, List, Card, Button } from "antd";
 import './Home.css';
 
 import { BOOTSTRAP_MAX, SERVER_URL } from '../Constants';
@@ -112,6 +112,10 @@ export default class Home extends Component {
         <Content style={{ background: '#fff', padding: "160px 0", minHeight: 280 }}>
           <img src={SERVER_URL + "/static/img/home/m_navy.png"} alt="Logo" title="Logo by Adam Jenkins" style={{ width: "200px", display: "block", margin: "16px auto" }} />
           <h1 id="homeTitle">{this.title}</h1>
+          <p style={{ textAlign: "center", margin: 0 }}>
+            <Button href="https://meritacademy.instructure.com" target="_blank">Go To Canvas</Button>
+          </p>
+          
         </Content>
         <div style={{maxWidth: "600px", margin: "0 auto", padding: "24px 24px 0", textAlign: "center"}}>
           <h1 style={{marginTop: "1em"}}>Who We Are</h1>
