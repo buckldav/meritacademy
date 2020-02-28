@@ -15,7 +15,7 @@ const GameInfo = [
         author: "Tennyson H",
         engine: "Godot",
         instructions: "Click on the game to activate it. Press arrow keys to move.",
-        url: "https://meritacademy.s3-us-west-1.amazonaws.com/games/aneursym/Tennyson.html"
+        url: "https://meritacademy-games.s3-us-west-1.amazonaws.com/aneurysm/Tennyson.html"
     },
     {
         title: "Back in Time",
@@ -29,7 +29,7 @@ const GameInfo = [
         author: "Matthew H, Aiden P, Eric D, and Jaden E",
         engine: "Unity",
         instructions: "Go on an incredible Martian adventure with botanist/space ranger Billiam Galileo. WASD or Arrow Keys to move, Space to jump.",
-        url: "https://meritacademy.s3-us-west-1.amazonaws.com/games/billiam/index.html"
+        url: "https://meritacademy-games.s3-us-west-1.amazonaws.com/billiam/index.html"
     },
     {
         title: "Cat Platform",
@@ -50,7 +50,7 @@ const GameInfo = [
         author: "Dallin C",
         engine: "Unity",
         instructions: "WASD or Arrow Keys to move.",
-        url: "https://meritacademy.s3-us-west-1.amazonaws.com/games/dont-die/index.html"
+        url: "https://meritacademy-games.s3-us-west-1.amazonaws.com/dont-die/index.html"
     },
     {
         title: "Dragon's Quest",
@@ -64,21 +64,21 @@ const GameInfo = [
         author: "Zion A, Luke E",
         engine: "Unity",
         instructions: "Space to fly, arrow keys to move. Look for the end.",
-        url: "https://meritacademy.s3-us-west-1.amazonaws.com/games/flying-soldier/index.html"
+        url: "https://meritacademy-games.s3-us-west-1.amazonaws.com/flying-soldier/index.html"
     },
     {
         title: "Fun Game",
         author: "Talan J",
         engine: "Godot",
         instructions: "Click on the game to activate it. Press arrow keys to move.",
-        url: "https://meritacademy.s3-us-west-1.amazonaws.com/games/fun-game/Talan.html"
+        url: "https://meritacademy-games.s3-us-west-1.amazonaws.com/fun-game/Talan.html"
     },
     {
         title: "IDK 2.0",
         author: "Sebastian P",
         engine: "Godot",
         instructions: "Click on the game to activate it. Press arrow keys to move.",
-        url: "https://meritacademy.s3-us-west-1.amazonaws.com/games/idk-2/2D+Movement+Demo.html"
+        url: "https://meritacademy-games.s3-us-west-1.amazonaws.com/idk-2/2D+Movement+Demo.html"
     },
     {
         title: "Kingdom",
@@ -99,14 +99,14 @@ const GameInfo = [
         author: "Wyatt H",
         engine: "Godot",
         instructions: "Click on the game to activate it. Press arrow keys to move.",
-        url: "https://meritacademy.s3-us-west-1.amazonaws.com/games/marioish/Wyatt.html"
+        url: "https://meritacademy-games.s3-us-west-1.amazonaws.com/marioish/Wyatt.html"
     },
     {
         title: "Maze",
         author: "Connor L",
         engine: "Godot",
         instructions: "Click on the game to activate it. Find the star! Press arrow keys to move.",
-        url: "https://meritacademy.s3-us-west-1.amazonaws.com/games/maze/index.html"
+        url: "https://meritacademy-games.s3-us-west-1.amazonaws.com/maze/index.html"
     },
     {
         title: "Pygame Demo",
@@ -127,21 +127,21 @@ const GameInfo = [
         author: "Manases R",
         engine: "Godot",
         instructions: "Click on the game to activate it. Press arrow keys to move.",
-        url: "https://meritacademy.s3-us-west-1.amazonaws.com/games/sonic-dash/2D+Movement+Demo.html"
+        url: "https://meritacademy-games.s3-us-west-1.amazonaws.com/sonic-dash/2D+Movement+Demo.html"
     },
     {
         title: "Sypher",
         author: "Owen H",
         engine: "Godot",
         instructions: "Click on the game to activate it. Press arrow keys to move.",
-        url: "https://meritacademy.s3-us-west-1.amazonaws.com/games/sypher/Owen.html"
+        url: "https://meritacademy-games.s3-us-west-1.amazonaws.com/sypher/Owen.html"
     },
     {
         title: "Weird Platfarmer",
         author: "Isaac S",
         engine: "Godot",
         instructions: "Click on the game to activate it. Press arrow keys to move.",
-        url: "https://meritacademy.s3-us-west-1.amazonaws.com/games/weird-platfarmer/Isaac.html"
+        url: "https://meritacademy-games.s3-us-west-1.amazonaws.com/weird-platfarmer/Isaac.html"
     }
 ]
 
