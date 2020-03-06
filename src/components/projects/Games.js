@@ -148,6 +148,65 @@ const GameInfo = [
     }
 ]
 
+const PongInfo = [  
+    {
+        title: "Bad Pong",
+        author: "Alex B",
+        engine: "Godot",
+        instructions: "Click on the game to activate it. Press WASD (left) / arrow keys (right) to move.",
+        url: "https://meritacademy-games.s3-us-west-1.amazonaws.com/pong-alex/BadPong.html"
+    },
+    {
+        title: "Mega Ultra Ball",
+        author: "Ethan W",
+        engine: "Godot",
+        instructions: "Click on the game to activate it. Press WASD (left) / arrow keys (right) to move.",
+        url: "https://meritacademy-games.s3-us-west-1.amazonaws.com/pong-ethan/MegaUltraBall.html"
+    },
+    {
+        title: "Ping dela Pong",
+        author: "Tennyson H",
+        engine: "Godot",
+        instructions: "Click on the game to activate it. Press WASD (left) / arrow keys (right) to move.",
+        url: "https://meritacademy-games.s3-us-west-1.amazonaws.com/pong-tennyson/Pong.html"
+    },
+    {
+        title: "Pong (Grant)",
+        author: "Grant L",
+        engine: "Godot",
+        instructions: "Click on the game to activate it. Press WASD (left) / arrow keys (right) to move.",
+        url: "https://meritacademy-games.s3-us-west-1.amazonaws.com/pong-grant/pong.html"
+    },
+    {
+        title: "Pong (Isaac)",
+        author: "Isaac S",
+        engine: "Godot",
+        instructions: "Click on the game to activate it. Press WASD (left) / arrow keys (right) to move.",
+        url: "https://meritacademy-games.s3-us-west-1.amazonaws.com/pong-isaac/Isaac.html"
+    },
+    {
+        title: "Pong (Luke)",
+        author: "Luke E",
+        engine: "Godot",
+        instructions: "Click on the game to activate it. Press WASD (left) / arrow keys (right) to move.",
+        url: "https://meritacademy-games.s3-us-west-1.amazonaws.com/pong-luke/Pong.html"
+    },
+    {
+        title: "Pong (Manases)",
+        author: "Manases R",
+        engine: "Godot",
+        instructions: "Click on the game to activate it. Press WASD (left) / arrow keys (right) to move.",
+        url: "https://meritacademy-games.s3-us-west-1.amazonaws.com/pong-manases/Pong.html"
+    },
+    {
+        title: "Pong (Talan)",
+        author: "Talan J",
+        engine: "Godot",
+        instructions: "Click on the game to activate it. Press WASD (left) / arrow keys (right) to move.",
+        url: "https://meritacademy-games.s3-us-west-1.amazonaws.com/pong-talan/Pong.html"
+    }
+]
+
 const EngineUrls = {
     "Scratch": "https://scratch.mit.edu/",
     "Godot": "https://godotengine.org/",
@@ -174,6 +233,19 @@ class Games extends React.Component {
         >
             {
                 TextGamesInfo.map((val, i) => (
+                    <Menu.Item key={"" + i}>{val.title}</Menu.Item>
+                ))
+            }
+        </Menu>
+    );
+
+    pongmenu = (
+        <Menu 
+            onClick={(e) => (this.handleClick(e, PongInfo))}
+            selectedKeys={[]}
+        >
+            {
+                PongInfo.map((val, i) => (
                     <Menu.Item key={"" + i}>{val.title}</Menu.Item>
                 ))
             }
@@ -207,6 +279,11 @@ class Games extends React.Component {
                 <Dropdown overlay={this.menu}>
                     <button className="ant-dropdown-link button-no-style" style={{marginBottom: 24, marginRight: 16}}>
                         Select 2D Game <Icon type="down" />
+                    </button>
+                </Dropdown>
+                <Dropdown overlay={this.pongmenu}>
+                    <button className="ant-dropdown-link button-no-style" style={{marginBottom: 24, marginRight: 16}}>
+                        Select Pong Game <Icon type="down" />
                     </button>
                 </Dropdown>
                 <Dropdown overlay={this.textmenu}>
