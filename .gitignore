@@ -3,6 +3,7 @@
 /build
 /env
 /staticfiles
+/tmp
 /.vscode
 
 *.pyc

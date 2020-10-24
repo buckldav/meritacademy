@@ -113,7 +113,8 @@ export default class Home extends Component {
           <img src={SERVER_URL + "/static/img/home/m_navy.png"} alt="Logo" title="Logo by Adam Jenkins" style={{ width: "200px", display: "block", margin: "16px auto" }} />
           <h1 id="homeTitle">{this.title}</h1>
           <p style={{ textAlign: "center", margin: 0 }}>
-            <Button href="https://meritacademy.instructure.com" target="_blank">Go To Canvas</Button>
+            <Button href="https://meritacademy.instructure.com" target="_blank" style={{ marginRight: "12px" }}>Go To Canvas</Button>
+            <Button href="/youtube">YouTube Downloader</Button>
           </p>
           
         </Content>

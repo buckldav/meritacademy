@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} | YouTube Downloader{% endblock %}
+{% block content %}
+  <main>
+    <h1>YouTube Downloader</h1>
+    <p>Works pretty well, sometimes it takes a few tries.</p>
+    <a href="/" class="btn" style="margin-bottom: 24px;">Back to Home</a>
+    <form action="{% url 'yt' %}" method="POST">
+      {% csrf_token %}
+      {{ youtube_form }}
+      <input type="submit" class="btn">
+    </form>
+    {% if error %}
+    <p>{{error}}</p>
+    {% endif %}
+    {% if downloaded_file %}
+      <a id="download" href="{% static downloaded_file %}" class="hidden" download="download.mp4" hidden>Download Video</a>
+      <script type="text/javascript">
+        document.getElementById('download').click()
+        fetch("{% url 'yt_delete' %}")
+      </script>
+    {% endif %}
+  </main>
+{% endblock %}

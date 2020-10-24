@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 # SECURITY WARNING: keep the secret key used in production secret!
 if DEBUG:
@@ -43,7 +43,9 @@ INSTALLED_APPS = [
   'django.contrib.staticfiles',
 
   'corsheaders',
+  'pytube',
   'rest_framework',
+  'whitenoise',
 
   'calendarevents',
   'courses',
@@ -59,6 +61,7 @@ MIDDLEWARE = [
   'django.contrib.auth.middleware.AuthenticationMiddleware',
   'django.contrib.messages.middleware.MessageMiddleware',
   'django.middleware.clickjacking.XFrameOptionsMiddleware',
+  'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'reactdjango.urls'
@@ -67,7 +70,8 @@ TEMPLATES = [
   {
     'BACKEND': 'django.template.backends.django.DjangoTemplates',
     'DIRS': [
-      os.path.join(BASE_DIR, 'build')
+      os.path.join(BASE_DIR, 'build'),
+      os.path.join(BASE_DIR, 'reactdjango', 'templates')
     ],
     'APP_DIRS': True,
     'OPTIONS': {
