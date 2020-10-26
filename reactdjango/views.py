@@ -12,26 +12,26 @@ def youtube_download(request):
     yt_form = YouTubeForm(request.POST)
     if yt_form.is_valid():
       url = yt_form.cleaned_data["url"]
-      try:
-        yt = YouTube(url)
-        yt_filename = f"download-{request.session.session_key[:10]}.mp4"
-        streams = yt.streams.filter(progressive=True)
-        for s in reversed(streams):
-          # print(s)
-          # print(s.filesize)
-          if s.filesize <= 30 * 10**6:
-            # print("filename", yt_filename[0:-4])
-            s.download(os.path.join(settings.BASE_DIR, 'build/static'), yt_filename[0:-4])
-            request.session["filename"] = os.path.join(settings.BASE_DIR, 'build/static', yt_filename)
-            return render(request, 'youtube.html', {
-              "youtube_form": yt_form,
-              "downloaded_file": yt_filename,
-              "filesize": s.filesize
-            })
-          else:
-            error = "Video File must be less than 30 MB"
-      except:
-        error = "internal error, try again"
+      # try:
+      yt = YouTube(url)
+      yt_filename = f"download-{request.session.session_key[:10]}.mp4"
+      streams = yt.streams.filter(progressive=True)
+      for s in reversed(streams):
+        # print(s)
+        # print(s.filesize)
+        if s.filesize <= 40 * 10**6:
+          # print("filename", yt_filename[0:-4])
+          s.download(os.path.join(settings.BASE_DIR, 'build/static'), yt_filename[0:-4])
+          request.session["filename"] = os.path.join(settings.BASE_DIR, 'build/static', yt_filename)
+          return render(request, 'youtube.html', {
+            "youtube_form": yt_form,
+            "downloaded_file": yt_filename,
+            "filesize": s.filesize
+          })
+        else:
+          error = "Video File must be less than 40 MB"
+      # except:
+      #   error = "internal error, try again"
       error = "internal error, try again"
 
   return render(request, 'youtube.html', {
