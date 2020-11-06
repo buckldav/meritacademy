@@ -1,12 +1,12 @@
 import React from 'react';
-import { Avatar, List, Radio, Calendar, Badge, Modal, Button, Switch, Menu, Dropdown, Icon, Row, Col, Card } from 'antd';
+import { Avatar, List, Radio, Calendar, Badge, Modal, Button, Switch, Menu, Dropdown, Icon, Row, Col, Card, Spin } from 'antd';
 import { EventStyles } from './EventStyles';
 import Iframe from 'react-iframe';
 
 const RadioButton = Radio.Button;
 const RadioGroup = Radio.Group;
 
-const DashboardModal = props => (
+export const DashboardModal = props => (
     <Modal
         visible={props.item.visible}
         title={props.item.date}
@@ -28,7 +28,9 @@ const DashboardModal = props => (
         width="100%" 
         height="480" 
         display="initial"
-        position="relative" />
+        position="relative">
+            <Spin />
+        </Iframe>
         }
     </Modal>
 );

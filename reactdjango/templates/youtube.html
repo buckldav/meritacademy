@@ -5,7 +5,10 @@
 {% block content %}
   <main>
     <h1>YouTube Downloader</h1>
-    <p>Works pretty well, sometimes it takes a few tries.</p>
+    <p>
+      Works pretty well, sometimes it takes a few tries. 
+      Probably broken right now because of <a href="https://itsfoss.com/youtube-dl-github-takedown/">this</a>.
+    </p>
     <a href="/" class="btn" style="margin-bottom: 24px;">Back to Home</a>
     <form action="{% url 'yt' %}" method="POST">
       {% csrf_token %}
