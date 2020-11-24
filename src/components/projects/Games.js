@@ -38,6 +38,13 @@ const TextGamesInfo = [
         instructions: "The fate of the kingdom is in your hands!",
         url: "https://kingdom.ammonasay.repl.run/"
     },
+    {
+        title: "Thanksgiving Emergency",
+        author: "Mr. Buckley",
+        engine: "repl.it",
+        instructions: "Save the dinner! Save the dinner!",
+        url: "https://repl.it/@buckldav/RPG-Game?lite=true&outputonly=1"
+    }
 ]
 
 const GameInfo = [  
