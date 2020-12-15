@@ -170,6 +170,17 @@ export default class Home extends Component {
     return(
       <>
         <Row style={{background: '#fff'}}>
+          <Col xs={{span:24, order: -1}} md={10}>
+            <Content style={{ padding: "160px 0", minHeight: 280 }}>
+              <img src={SERVER_URL + "/static/img/home/m_navy.png"} alt="Logo" title="Logo by Adam Jenkins" style={{ width: "200px", display: "block", margin: "16px auto" }} />
+              <h1 id="homeTitle">{this.title}</h1>
+              <p style={{ textAlign: "center", margin: 0 }}>
+                <Button size="large" href="https://meritacademy.instructure.com" target="_blank">Go To Canvas</Button><br/><br/>
+                <Button size="large" href="/projects/games">Play 2020 Games</Button>
+                {/* <Button href="/youtube">YouTube Downloader</Button> */}
+              </p>
+            </Content>
+          </Col>
           <Col xs={24} md={14}>
             <Content style={{ padding: "24px" }}>
               <h1>Join Technology Club!</h1>
@@ -208,18 +219,7 @@ export default class Home extends Component {
                 )}
               />
             </Content>
-          </Col>
-          <Col xs={{span:24, order: -1}} md={10}>
-            <Content style={{ padding: "160px 0", minHeight: 280 }}>
-              <img src={SERVER_URL + "/static/img/home/m_navy.png"} alt="Logo" title="Logo by Adam Jenkins" style={{ width: "200px", display: "block", margin: "16px auto" }} />
-              <h1 id="homeTitle">{this.title}</h1>
-              <p style={{ textAlign: "center", margin: 0 }}>
-                <Button href="https://meritacademy.instructure.com" target="_blank">Go To Canvas</Button>
-                {/* <Button href="/youtube">YouTube Downloader</Button> */}
-              </p>
-            </Content>
-          </Col>
-        
+          </Col>        
         </Row>
         <div style={{maxWidth: "600px", margin: "0 auto", padding: "24px 24px 0", textAlign: "center"}}>
           <h1 style={{marginTop: "1em"}}>Who We Are</h1>
