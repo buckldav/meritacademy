@@ -2,6 +2,8 @@ import React from 'react';
 import Links from '../Links';
 import axios from 'axios';
 import { SERVER_URL } from '../../Constants';
+import { Typography } from 'antd';
+const { Title } = Typography;
 
 class Sites extends React.Component {
     state = {}
@@ -17,7 +19,7 @@ class Sites extends React.Component {
     render() {
         return (
             <div>
-                <h1>Sites</h1>
+                <Title>Sites</Title>
                 <Links data={this.state.data} />
             </div>
         )

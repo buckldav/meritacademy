@@ -32,6 +32,7 @@ const BaseRouter = () => {
           <Projects>
             <Switch>
               <Route exact path={`${url}/games`} component={Games} />
+              <Route exact path={`${url}/games/:id`} component={Games} />
               <Route path={`${url}/sites`} component={Sites} />
               <Route path={`${url}/apps`} component={Apps} />
               <Redirect to={`${url}/games`} />

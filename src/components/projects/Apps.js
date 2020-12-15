@@ -2,6 +2,8 @@ import React from 'react';
 import Links from '../Links';
 import axios from 'axios';
 import { SERVER_URL } from '../../Constants';
+import { Typography } from 'antd';
+const { Title } = Typography;
 
 class Apps extends React.Component {
     state = {}
@@ -17,7 +19,7 @@ class Apps extends React.Component {
     render() {
         return (
             <div>
-                <h1>Apps</h1>
+                <Title>Apps</Title>
                 <Links icon="mobile" data={this.state.data} />
             </div>
         )
