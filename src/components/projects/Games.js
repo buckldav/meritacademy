@@ -79,7 +79,7 @@ const TextGamesInfo = {
       title: "Defeat the Bat Monkeys",
       author: "Mason M",
       engine: "repl.it",
-      instructions: "After you kill all of them, you must return home with their pelts to win.",
+      instructions: <>After you kill all of them, you must return home with their pelts to win. Click <strong><a href="https://drive.google.com/file/d/1wcGnkWpTVQT-qC5flK98VSK-EPVsdBiQ/view" target="_blank" rel="noopener noreferrer">here</a></strong> for the map.</>,
       url: "https://repl.it/@IisCoder/Defeat-The-Bat-Monkeys?lite=true&outputonly=1"
     },
     "eight-keys": {
