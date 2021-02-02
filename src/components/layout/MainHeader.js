@@ -14,9 +14,9 @@ const MainHeader = props => {
                 style={{ lineHeight: '64px' }}
             >
                 <Menu.Item key="1"><a href="/">Home</a></Menu.Item>
-                <Menu.Item key="2"><a href="/courses">Courses</a></Menu.Item>
-                <Menu.Item key="3"><a href="/projects">Projects</a></Menu.Item>
-                <Menu.Item key="4"><a href="https://learn.meritacademy.tech">Learn CS</a></Menu.Item>
+                {/* <Menu.Item key="2"><a href="/courses">Courses</a></Menu.Item> */}
+                <Menu.Item key="2"><a href="/projects">Projects</a></Menu.Item>
+                <Menu.Item key="3"><a href="https://learn.meritacademy.tech">Learn CS</a></Menu.Item>
             </Menu>
         </Header>
     )
