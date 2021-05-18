@@ -328,6 +328,16 @@ const PongInfo = [
     }
 ]
 
+const GameInfo2021 = [
+    {
+        title: "Grandpa's Jars",
+        author: "Thai N",
+        engine: "Unity",
+        instructions: "Click on the game to activate it. Press WASD (left) / arrow keys (right) to move.",
+        url: "https://shadymurkybytecode.buckldav.repl.co"
+    }
+]
+
 const EngineUrls = {
     "Scratch": "https://scratch.mit.edu/",
     "Godot": "https://godotengine.org/",
@@ -351,12 +361,12 @@ class Games extends React.Component {
 
     textmenu = (
         <Menu 
-            onClick={(e) => (this.handleClick(e, TextGamesInfo))}
+            onClick={(e) => (this.handleClick(e, GameInfo2021))}
             selectedKeys={[]}
         >
             {
-                Object.keys(TextGamesInfo).map((key, i) => (
-                    <Menu.Item key={key}>{TextGamesInfo[key].title} by {TextGamesInfo[key].author}</Menu.Item>
+                Object.keys(GameInfo2021).map((key, i) => (
+                    <Menu.Item key={key}>{GameInfo2021[key].title} by {GameInfo2021[key].author}</Menu.Item>
                 ))
             }
         </Menu>
@@ -406,7 +416,7 @@ class Games extends React.Component {
     }
 
     render() {
-        const item = TextGamesInfo[this.state.selected]
+        const item = GameInfo2021[this.state.selected]
         if (this.state.newSelected) {
             return <Redirect to={"/projects/games/" + this.state.newSelected} />
         } else {
