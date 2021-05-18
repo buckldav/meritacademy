@@ -334,7 +334,7 @@ const GameInfo2021 = [
         author: "Thai N",
         engine: "Unity",
         instructions: "Click on the game to activate it. Press WASD (left) / arrow keys (right) to move.",
-        url: "https://shadymurkybytecode.buckldav.repl.co"
+        url: "https://grandpasjars.buckldav.repl.co/"
     }
 ]
 
@@ -425,7 +425,7 @@ class Games extends React.Component {
                     <Title>Games</Title>
                     <Dropdown overlay={this.textmenu}>
                         <button className="ant-dropdown-link button-no-style" style={{marginBottom: 24}}>
-                            Select Text Game <Icon type="down" />
+                            Select Unity Game <Icon type="down" />
                         </button>
                     </Dropdown>
                     {/* <Dropdown overlay={this.menu}>
