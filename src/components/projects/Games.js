@@ -330,12 +330,40 @@ const PongInfo = [
 
 const GameInfo2021 = [
     {
+        title: "AntiHero",
+        author: "Michael D",
+        engine: "Unity",
+        instructions: "Click on the game to activate it. Press WASD (left) / arrow keys (right) to move.",
+        url: "https://antihero.dungeonmaster42.repl.co/"
+    },
+    {
+        title: "Caleb Platformer",
+        author: "Caleb L",
+        engine: "Unity",
+        instructions: "Click on the game to activate it. Press WASD (left) / arrow keys (right) to move; SPACE to jump.",
+        url: "https://Caleb-Platformer.buckldav.repl.co"
+    },
+    {
         title: "Grandpa's Jars",
         author: "Thai N",
         engine: "Unity",
         instructions: "Click on the game to activate it. Press WASD (left) / arrow keys (right) to move.",
         url: "https://grandpasjars.buckldav.repl.co/"
-    }
+    },
+    {
+        title: "RUN AND JUMP",
+        author: "Ronon L",
+        engine: "Unity",
+        instructions: "Click on the game to activate it. Press WASD (left) / arrow keys (right) to move.",
+        url: "https://RUN-AND-JUMP.buckldav.repl.co"
+    },
+    {
+        title: "The Walking Dead Remake",
+        author: "Dustin and Katlyn M",
+        engine: "Unity",
+        instructions: "Click on the game to activate it. Press WASD (left) / arrow keys (right) to move.",
+        url: "https://the-walking-dead-remake.buckldav.repl.co/"
+    },
 ]
 
 const EngineUrls = {
