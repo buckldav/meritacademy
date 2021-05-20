@@ -333,35 +333,42 @@ const GameInfo2021 = [
         title: "AntiHero",
         author: "Michael D",
         engine: "Unity",
-        instructions: "Click on the game to activate it. Press WASD (left) / arrow keys (right) to move.",
+        instructions: "Click on the game to activate it. Use WASD or arrow keys to move; SPACE to jump.",
         url: "https://antihero.dungeonmaster42.repl.co/"
     },
     {
         title: "Caleb Platformer",
         author: "Caleb L",
         engine: "Unity",
-        instructions: "Click on the game to activate it. Press WASD (left) / arrow keys (right) to move; SPACE to jump.",
+        instructions: "Click on the game to activate it. Press WASD or arrow keys to move; SPACE to jump.",
         url: "https://Caleb-Platformer.buckldav.repl.co"
+    },
+    {
+        title: "Collect The Crystals",
+        author: "Mason M",
+        engine: "Unity",
+        instructions: "Click on the game to activate it. Press WASD or arrow keys to move; SPACE to jump.",
+        url: "https://collect-the-crystals.iiscoder.repl.co/"
     },
     {
         title: "Grandpa's Jars",
         author: "Thai N",
         engine: "Unity",
-        instructions: "Click on the game to activate it. Press WASD (left) / arrow keys (right) to move.",
+        instructions: "Click on the game to activate it. Press WASD or arrow keys to move.",
         url: "https://grandpasjars.buckldav.repl.co/"
     },
     {
         title: "RUN AND JUMP",
         author: "Ronon L",
         engine: "Unity",
-        instructions: "Click on the game to activate it. Press WASD (left) / arrow keys (right) to move.",
+        instructions: "Click on the game to activate it. Use WASD and SPACE to move/jump/crouch.",
         url: "https://RUN-AND-JUMP.buckldav.repl.co"
     },
     {
         title: "The Walking Dead Remake",
         author: "Dustin and Katlyn M",
         engine: "Unity",
-        instructions: "Click on the game to activate it. Press WASD (left) / arrow keys (right) to move.",
+        instructions: "Click on the game to activate it. Use WASD or arrow keys along with the mouse to move.",
         url: "https://the-walking-dead-remake.buckldav.repl.co/"
     },
 ]
