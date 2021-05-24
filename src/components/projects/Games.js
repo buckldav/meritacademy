@@ -351,6 +351,13 @@ const GameInfo2021 = [
         url: "https://collect-the-crystals.iiscoder.repl.co/"
     },
     {
+        title: "Don't Die!",
+        author: "Anonymous",
+        engine: "Unity",
+        instructions: "WASD or Arrow Keys to move.",
+        url: "https://meritacademy-games.s3-us-west-1.amazonaws.com/dont-die/index.html"
+    },
+    {
         title: "Grandpa's Jars",
         author: "Thai N",
         engine: "Unity",
